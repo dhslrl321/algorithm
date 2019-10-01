@@ -9,15 +9,15 @@ public class Prob04_Alram {
         int min = input.nextInt();
         int solution = (hour*60) + min - 45;
 
-        int solHour;
-        int solMin;
-        if(solution <= 0){
-            solHour = 23;
-            solMin = 60 - (solution % 60);
-        }else{
+        int solHour = solution / 60;
+        int solMin = solution % 60;
+
+        if(solution < 0){
+            solution = (60 * 24) + min - 45;
             solHour = solution / 60;
             solMin = solution % 60;
         }
+
         System.out.print(solHour+" "+ solMin);
     }
 }
