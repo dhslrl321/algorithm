@@ -8,11 +8,12 @@ public class Prob09_PrintStart {
 
         int count = input.nextInt();
 
-        for(int i=0; i<=count; i++){
-            for(int j=0; j<i; j++){
-                System.out.print("*");
+
+        for(int i=0; i<count; i++){
+            for(int j=0; j<i+1; j++){
+                System.out.printf("*");
             }
-            System.out.println();
+            System.out.printf("\n");
         }
     }
 }
