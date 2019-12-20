@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class Prob10_ReversePrintStart {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        int a = input.nextInt();
-        System.out.println(a);
-
+        /*
+        *
+        * 해결 못 한 문제... 개어렵..
+        *
+        *
+        * */
     }
 }
