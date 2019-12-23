@@ -9,16 +9,6 @@ public class Prob03_PlusCycle {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int inputNum = input.nextInt();
-
-        int left, right, compNum = 0, count = 0;
-
-        left = inputNum / 10;
-        right = inputNum % 10;
-
-        while(inputNum != compNum){
-            compNum = left * 10 + right;
-
-        }
+        
     }
 }
