@@ -24,6 +24,6 @@ public class Prob03_MusicalScales {
             System.out.println("mixed");
             
         }
-
+        
     }
 }
