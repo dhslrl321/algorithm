@@ -23,7 +23,6 @@ public class Prob03_MusicalScales {
         }else {
             System.out.println("mixed");
             Arrays.toString(arr).equals(Arrays.toString(descendArr));
-            StringBuffer stbf = new StringBuffer();
         }
         
     }
