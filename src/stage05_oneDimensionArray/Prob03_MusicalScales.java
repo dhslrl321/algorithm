@@ -26,7 +26,6 @@ public class Prob03_MusicalScales {
             StringBuffer stbf = new StringBuffer();
             stbf.append("i");
             stbf.append("s");
-            stbf.append("a");
         }
         
     }
