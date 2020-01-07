@@ -22,7 +22,6 @@ public class Prob03_MusicalScales {
             System.out.println("descending");
         }else {
             System.out.println("mixed");
-            Arrays.toString(arr).equals(Arrays.toString(descendArr));
         }
         
     }
