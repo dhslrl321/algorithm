@@ -27,7 +27,6 @@ public class Prob03_MusicalScales {
             stbf.append("i");
             stbf.append("s");
             stbf.append("a");
-            stbf.append("c");
         }
         
     }
