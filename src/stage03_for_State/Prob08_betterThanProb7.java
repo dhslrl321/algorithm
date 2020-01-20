@@ -9,10 +9,10 @@ public class Prob08_betterThanProb7 {
         int testCase = input.nextInt();
         int left;
         int right;
-        for(int i=1; i<=testCase; i++){
+        for (int i = 1; i <= testCase; i++) {
             left = input.nextInt();
             right = input.nextInt();
-            System.out.println("Case #"+i+": "+left+" + "+right+" = "+(left+right));
+            System.out.println("Case #" + i + ": " + left + " + " + right + " = " + (left + right));
         }
     }
 }

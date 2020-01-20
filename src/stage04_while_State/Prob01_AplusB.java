@@ -9,11 +9,11 @@ public class Prob01_AplusB {
         int left;
         int right;
 
-        while(true){
+        while (true) {
             left = input.nextInt();
             right = input.nextInt();
 
-            if(left == 0 && right == 0) break;
+            if (left == 0 && right == 0) break;
             System.out.println(left + right);
         }
 

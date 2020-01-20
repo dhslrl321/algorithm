@@ -8,7 +8,7 @@ public class Prob06_ReversePrintN {
 
         int n = input.nextInt();
 
-        for(int i=n; i>=1; i--){
+        for (int i = n; i >= 1; i--) {
             System.out.println(i);
         }
     }

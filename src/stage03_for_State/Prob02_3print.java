@@ -8,12 +8,12 @@ public class Prob02_3print {
 
         int testCase = input.nextInt();
 
-        for(int i=0; i<testCase; i++){
+        for (int i = 0; i < testCase; i++) {
 
             int a = input.nextInt();
             int b = input.nextInt();
 
-            System.out.println(a+b);
+            System.out.println(a + b);
         }
     }
 }

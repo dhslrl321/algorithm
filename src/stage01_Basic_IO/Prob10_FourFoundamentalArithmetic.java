@@ -10,10 +10,10 @@ public class Prob10_FourFoundamentalArithmetic {
         int b = input.nextInt();
         int c = input.nextInt();
 
-        System.out.println( (a+b)%c);
-        System.out.println((a%c + b%b)%b);
-        System.out.println( (a*b)%c);
-        System.out.println((a%c * b%c)%c);
+        System.out.println((a + b) % c);
+        System.out.println((a % c + b % b) % b);
+        System.out.println((a * b) % c);
+        System.out.println((a % c * b % c) % c);
     }
 
 }

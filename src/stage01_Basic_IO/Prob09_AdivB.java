@@ -8,6 +8,6 @@ public class Prob09_AdivB {
         double left = input.nextInt();
         double right = input.nextInt();
 
-        System.out.printf("%f",left/right);
+        System.out.printf("%f", left / right);
     }
 }

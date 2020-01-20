@@ -15,15 +15,15 @@ public class Prob11_UnderX {
         ArrayList<Integer> ansSeq = new ArrayList<Integer>();
 
         /*수열 A를 입력하는 반복문*/
-        for(int i=0; i<count; i++){
+        for (int i = 0; i < count; i++) {
             seq[i] = input.nextInt();
-            if(underX > seq[i]){
+            if (underX > seq[i]) {
                 ansSeq.add(seq[i]);
             }
         }
 
-        for(int i=0; i<ansSeq.size(); i++){
-            System.out.print(ansSeq.get(i)+" ");
+        for (int i = 0; i < ansSeq.size(); i++) {
+            System.out.print(ansSeq.get(i) + " ");
         }
 
 

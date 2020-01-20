@@ -8,9 +8,9 @@ public class Prob03_Sum {
 
         int n = input.nextInt();
         int sum = 0;
-        for(int i=1; i<n; i++){
-            sum+=i;
+        for (int i = 1; i < n; i++) {
+            sum += i;
         }
-        System.out.println(sum+n);
+        System.out.println(sum + n);
     }
 }

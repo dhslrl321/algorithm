@@ -9,8 +9,8 @@ public class Prob01_Multiplication_Table {
 
         int dan = input.nextInt();
 
-        for(int i=1; i<10; i++){
-            System.out.printf("%d * %d = %d\n",dan, i, dan*i);
+        for (int i = 1; i < 10; i++) {
+            System.out.printf("%d * %d = %d\n", dan, i, dan * i);
         }
     }
 }

@@ -10,11 +10,11 @@ public class Prob05_Three_Number {
         int y = input.nextInt();
         int z = input.nextInt();
 
-        if((y <= x && x <= z) || (z <= x && x <= y)){
+        if ((y <= x && x <= z) || (z <= x && x <= y)) {
             System.out.println(x);
-        }else if((x <= y && y <= z) || (z <= y && y <= x)){
+        } else if ((x <= y && y <= z) || (z <= y && y <= x)) {
             System.out.println(y);
-        }else {
+        } else {
             System.out.println(z);
         }
     }

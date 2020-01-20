@@ -7,15 +7,15 @@ public class Prob02_TestScore {
         Scanner input = new Scanner(System.in);
         int score = input.nextInt();
 
-        if(score <=100 && score >= 90){
+        if (score <= 100 && score >= 90) {
             System.out.println("A");
-        }else if(score <= 89 && score >= 80){
+        } else if (score <= 89 && score >= 80) {
             System.out.println("B");
-        }else if (score <= 79 && score >= 70){
+        } else if (score <= 79 && score >= 70) {
             System.out.println("C");
-        }else if (score <= 69 && score >= 60){
+        } else if (score <= 69 && score >= 60) {
             System.out.println("D");
-        }else {
+        } else {
             System.out.println("F");
         }
 

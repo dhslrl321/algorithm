@@ -8,11 +8,11 @@ public class Prob01_CompareValue {
         int left = input.nextInt();
         int right = input.nextInt();
 
-        if(left < right){
+        if (left < right) {
             System.out.println("<");
-        }else if(left > right){
+        } else if (left > right) {
             System.out.println(">");
-        }else {
+        } else {
             System.out.println("==");
         }
     }
