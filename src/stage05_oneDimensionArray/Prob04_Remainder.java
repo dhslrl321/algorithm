@@ -4,22 +4,11 @@ import java.util.Scanner;
 
 public class Prob04_Remainder {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        /*
+        *  right = 10 number get (Should be received in an array)
+        *  left = 42 Fixed Number
+        *
+        * */
 
-        int[] right = new int[10];
-        for(int i=0; i<right.length; i++){
-            right[i] = input.nextInt();
-        }
-        int left = 42, count = 10;
-        int[] arr = new int[41];
-        int ans = 0;
-
-        for(int i=0; i<arr.length; i++){
-            if(arr[i] == 1){
-                ans++;
-            }
-        }
-
-        System.out.println(ans);
     }
 }
