@@ -26,7 +26,6 @@ public class Prob04_Remainder {
                 countFlag++;
             }
         }
-
         System.out.println(countFlag);
 
     }
