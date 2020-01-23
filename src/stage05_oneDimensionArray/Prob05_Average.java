@@ -25,14 +25,12 @@ public class Prob05_Average {
 
         int maxScore = subject[subject.length-1];
 
-        System.out.println(maxScore);
 
         double[] score = new double[subjectNum];
 
         for(int i=0; i<subject.length; i++){
             score[i] = (double)subject[i] / (double)maxScore * 100;
         }
-        System.out.println(Arrays.toString(score));
         double avg = (Arrays.stream(score).sum() / subjectNum);
         System.out.println(avg);
     }
