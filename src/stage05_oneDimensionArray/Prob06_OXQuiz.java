@@ -7,15 +7,24 @@ public class Prob06_OXQuiz {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int resultNum = input.nextInt();
-        String[] result = new String[resultNum];
+        int testCase = input.nextInt();
 
-        /*OX arr*/
-        for(int i=0; i<result.length; i++){
-            result[i] = input.next();
+        String[] quizResult = new String[testCase];
+
+        for(int i=0; i<quizResult.length; i++){
+            quizResult[i] = input.next();
+
+            int count = 0, sum = 0;
+            for(int j=0; j<quizResult[i].length(); j++){
+                if(quizResult[i].charAt(j) == 'O'){
+                    sum += ++count;
+                }else count = 0;
+            }
+            quizResult[i] = String.valueOf(sum);
         }
 
-
-
+        for(String loop : quizResult){
+            System.out.println(loop);
+        }
     }
 }
