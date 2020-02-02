@@ -11,19 +11,19 @@ public class Prob06_OXQuiz {
 
         String[] quizResult = new String[testCase];
 
-        for(int i=0; i<quizResult.length; i++){
+        for (int i = 0; i < quizResult.length; i++) {
             quizResult[i] = input.next();
 
             int count = 0, sum = 0;
-            for(int j=0; j<quizResult[i].length(); j++){
-                if(quizResult[i].charAt(j) == 'O'){
+            for (int j = 0; j < quizResult[i].length(); j++) {
+                if (quizResult[i].charAt(j) == 'O') {
                     sum += ++count;
-                }else count = 0;
+                } else count = 0;
             }
             quizResult[i] = String.valueOf(sum);
         }
 
-        for(String loop : quizResult){
+        for (String loop : quizResult) {
             System.out.println(loop);
         }
     }

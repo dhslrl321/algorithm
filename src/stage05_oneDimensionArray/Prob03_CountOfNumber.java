@@ -22,12 +22,12 @@ public class Prob03_CountOfNumber {
 
         int[] counts = new int[10];
 
-        while(result > 0){
+        while (result > 0) {
             counts[result % 10]++;
             result /= 10;
         }
 
-        for(int i=0; i < counts.length; ++i){
+        for (int i = 0; i < counts.length; ++i) {
             System.out.println(counts[i]);
         }
 

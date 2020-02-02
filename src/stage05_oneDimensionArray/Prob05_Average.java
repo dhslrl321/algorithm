@@ -12,19 +12,19 @@ public class Prob05_Average {
 
         int[] subject = new int[subjectNum];
 
-        for(int i=0; i<subject.length; i++){
+        for (int i = 0; i < subject.length; i++) {
             subject[i] = input.nextInt();
         }
 
         Arrays.sort(subject);
 
-        int maxScore = subject[subject.length-1];
+        int maxScore = subject[subject.length - 1];
 
 
         double[] score = new double[subjectNum];
 
-        for(int i=0; i<subject.length; i++){
-            score[i] = (double)subject[i] / (double)maxScore * 100;
+        for (int i = 0; i < subject.length; i++) {
+            score[i] = (double) subject[i] / (double) maxScore * 100;
         }
         double avg = (Arrays.stream(score).sum() / subjectNum);
         System.out.println(avg);

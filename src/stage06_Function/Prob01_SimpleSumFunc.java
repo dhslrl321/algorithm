@@ -8,10 +8,10 @@ public class Prob01_SimpleSumFunc {
 }
 
 class Test {
-    long sum(int[] a){
+    long sum(int[] a) {
         int sum = 0;
 
-        for(int i=0; i<a.length; i++){
+        for (int i = 0; i < a.length; i++) {
             sum += a[i];
         }
 

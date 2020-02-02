@@ -10,7 +10,7 @@ public class SumOfNumber_11720 {
 
         int num = input.nextInt();
         int sum = 0;
-        for(int i=0; i<limit; i++){
+        for (int i = 0; i < limit; i++) {
             sum += String.valueOf(num).charAt(i);
             System.out.println(sum);
         }
