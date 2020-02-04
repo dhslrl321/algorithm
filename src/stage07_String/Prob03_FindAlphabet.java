@@ -1,5 +1,6 @@
 package stage07_String;
 
+import java.text.Format;
 import java.util.Scanner;
 
 public class Prob03_FindAlphabet {
@@ -8,7 +9,9 @@ public class Prob03_FindAlphabet {
 
         String s = input.next();
 
-        for(char i='a'; i<'z'; i++){
+        System.out.println(s);
+
+        for(int i=97; i<123; i++){
             System.out.print(s.indexOf(i)+" ");
         }
 
