@@ -1,8 +1,5 @@
 package stage07_String;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Prob04_RoopingString {
@@ -10,6 +7,7 @@ public class Prob04_RoopingString {
         Scanner input = new Scanner(System.in);
 
         int testCase = input.nextInt();
+
         int[] round = new int[testCase];
         String[] str = new String[testCase];
 
@@ -21,9 +19,11 @@ public class Prob04_RoopingString {
         for(int i=0; i<testCase; i++){
             for(int j=0; j<str[i].length(); j++){
                 for(int k=0; k<round[i]; k++){
-                    System.out.print(str[j]);
+                    System.out.print(str[i].charAt(j));
                 }
             }
+            System.out.println();
         }
+
     }
 }
