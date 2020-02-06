@@ -13,30 +13,12 @@ public class Prob07_Sangsu {
         Scanner input = new Scanner(System.in);
 
         int left = input.nextInt();
-        int right = input.nextInt();
-
-        String leftTemp = Integer.toString(left);
-        String rightTemp = Integer.toString(right);
-
-        Integer[] leftDigits = new Integer[leftTemp.length()];
-        Integer[] rightDigits = new Integer[rightTemp.length()];
-
-        for (int i = 0; i < leftDigits.length; i++) {
-            leftDigits[i] = leftTemp.charAt(i) - '0';
-            rightDigits[i] = leftTemp.charAt(i) - '0';
+        //int right = input.nextInt();
+        int num = 0;
+        while(left >= 0){
+            num = left / 10;
+            System.out.println( num);
         }
 
-        List<Integer> leftAns = Arrays.asList(leftDigits);
-        List<Integer> rightAns = Arrays.asList(rightDigits);
-
-        Collections.reverse(leftAns);
-        Collections.reverse(rightAns);
-
-        int num1 = leftAns.get(0) * 100 + leftAns.get(1) * 10 + leftAns.get(2);
-        int num2 = rightAns.get(0) * 100 + rightAns.get(1) * 10 + leftAns.get(2);
-
-        if(num1 < num2){
-            System.out.println(num2);
-        }else System.out.println(num1);
     }
 }
