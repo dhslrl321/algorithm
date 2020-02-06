@@ -13,12 +13,22 @@ public class Prob07_Sangsu {
         Scanner input = new Scanner(System.in);
 
         int left = input.nextInt();
-        //int right = input.nextInt();
-        int num = 0;
-        while(left >= 0){
-            num = left / 10;
-            System.out.println( num);
+        int right = input.nextInt();
+        int[] leftArr = new int[3];
+        int[] rightArr = new int[3];
+
+        for (int i = 0; i < leftArr.length; i++) {
+            leftArr[i] = left % 10;
+            rightArr[i] = right % 10;
+
+            left /= 10;
+            right /= 10;
         }
 
+        left = (leftArr[0] * 100) + (leftArr[1] * 10) + (leftArr[2]);
+        right = (rightArr[0] * 100) + (rightArr[1] * 10) + (rightArr[2]);
+
+        if(left < right) System.out.println(right);
+        else System.out.println(left);
     }
 }
