@@ -28,11 +28,15 @@ class Using {
 
         ArrayList<Character> arrayList = new ArrayList<>();
 
-        for (int i = 0; i < str.length()-1; i++) {
-            if(arr[i] != arr[i+1]) arrayList.add(arr[i]);
+        for (int i = 0; i < str.length(); i++) {
+
+            try {
+                if(arr[i] != arr[i+1]) arrayList.add(arr[i]);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                arrayList.add(str.charAt(str.length()-1));
+            }
         }
 
-        arrayList.add(str.charAt(str.length()-1));
         for (int i = 0; i < arrayList.size(); i++) {
             for (int j = i; j < arrayList.size(); j++) {
                 if(i != j && arrayList.get(i) == arrayList.get(j)) return 0;
