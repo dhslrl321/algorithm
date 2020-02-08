@@ -17,6 +17,7 @@ public class Prob10_GroupWordChecker {
             ans += using.checker(str);
         }
         System.out.println(ans);
+        
     }
 }
 
