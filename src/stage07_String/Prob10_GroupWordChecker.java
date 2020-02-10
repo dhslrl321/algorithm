@@ -37,13 +37,11 @@ class Using {
                 arrayList.add(str.charAt(str.length()-1));
             }
         }
-
         for (int i = 0; i < arrayList.size(); i++) {
             for (int j = i; j < arrayList.size(); j++) {
                 if(i != j && arrayList.get(i) == arrayList.get(j)) return 0;
             }
         }
-
         return 1;
     }
 }
