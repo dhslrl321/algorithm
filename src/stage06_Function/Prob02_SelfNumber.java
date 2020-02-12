@@ -7,9 +7,15 @@ public class Prob02_SelfNumber {
         int[] num = new int[10000];
 
         for (int i = 0; i < num.length; i++) {
-      cd      num[i] = i;
+            num[i] = i;
         }
 
+        int a = 12345;
+
+        while(a != 0){
+            System.out.println(a%10);
+            a /= 10;
+        }
 
     }
 }
