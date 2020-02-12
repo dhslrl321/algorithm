@@ -4,17 +4,18 @@ import java.util.Arrays;
 
 public class Prob02_SelfNumber {
     public static void main(String[] args) {
-        SelfNumber selfNumber = new SelfNumber();
+        int[] num = new int[10000];
+
+        for (int i = 0; i < num.length; i++) {
+      cd      num[i] = i;
+        }
+
+
     }
 }
 
 class SelfNumber {
-    public SelfNumber() {
-        int[] number = new int[10000];
-
-        for (int i = 0; i <= 10000; i++) {
-            number[i] = i;
-        }
-        System.out.println(Arrays.toString(number));
+    public int reader(int num){
+        return num;
     }
 }
