@@ -10,21 +10,20 @@ public class Prob02_SnailWantToClimb {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+        int A = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
+        int V = Integer.parseInt(st.nextToken());
+        int answer = 1, subValue = A - B;
+        V -= A;
+        int share = V / subValue;
 
-        int up = Integer.parseInt(st.nextToken());
-        int down = Integer.parseInt(st.nextToken());
-        int line = Integer.parseInt(st.nextToken());
-
-        int day = 0;
-        int distance = 0;
-
-        while(distance < line){
-
-            distance += up - down;
-
-            if(distance == line) break;
-            day += 1;
+        if (V - (subValue * share) <= 0) {
+            answer += share;
+        } else {
+            answer += share + 1;
         }
-        System.out.println(day);
+
+        System.out.println(answer);
+
     }
 }
