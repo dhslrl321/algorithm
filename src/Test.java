@@ -1,15 +1,19 @@
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
+import java.util.Stack;
 
 public class Test {
     public static void main(String[] args) {
 
-        String b = "push 3";
-        String[] arr = b.split(" ");
-        int roop = 2;
-        while(roop > 0){
-            System.out.println(arr[0]);
-            --roop;
+        Stack<Character> stack = new Stack<>();
+
+        try {
+            stack.pop();
+        } catch (EmptyStackException e) {
+            System.out.println("Stack is empty");
         }
+
+
     }
 }

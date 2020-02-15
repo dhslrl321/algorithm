@@ -1,4 +1,4 @@
-package stage.stage05_oneDimensionArray;
+package stage.stage05_OneDimensionArray;
 
 import java.util.Arrays;
 import java.util.Scanner;
