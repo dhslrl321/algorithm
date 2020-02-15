@@ -28,6 +28,7 @@ class VPSChecker{
     private int ptr;
     private int max;
     private char[] stack;
+    private boolean popErrFlag = false;
 
     public VPSChecker(int capacity){
         max = capacity;
@@ -40,7 +41,8 @@ class VPSChecker{
     }
 
     public void pop(){
-        if(ptr > 0) --ptr;
+        if(ptr <= 0) popErrFlag = true;
+        else --ptr;
     }
 
     public boolean isEmpty(){
@@ -58,7 +60,8 @@ class VPSChecker{
                 pop();
             }
         }
-        if(isEmpty()) return true;
+        if(isEmpty() && !popErrFlag) return true;
+        else if(popErrFlag) return false;
         else return false;
     }
 }
