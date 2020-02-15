@@ -1,0 +1,45 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+
+        ArrayList<Integer> ans = new ArrayList<>();
+        ans.add(0);
+
+        int n = input.nextInt();
+        int[] tower = new int[n];
+
+        for(int i=0; i < n; i++){
+            tower = input.nextInt();
+        }
+
+    }
+}
+
+class MyStack {
+    int myStack(int[] arr){
+        Stack<Integer> stack = new Stack<>();
+        stack.push(arr[0]);
+        
+        for(int i=1; i < arr.length; i++){
+            
+            if (stack.peek() < arr[i]) {
+                
+                while(var >= 0){
+                    try {
+                        stack.pop();
+                        if(stack.peek() < arr[i]) return stack.peek();
+                    } catch(EmptyStackException e){
+                        return 0;
+                    }
+                }
+            }
+            else { // stack.peek() >= arr[i]
+                return arr[i];
+            }
+            
+        }
+    }
+}
