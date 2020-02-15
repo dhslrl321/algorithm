@@ -1,19 +1,17 @@
 
-import java.util.Arrays;
-import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class Test {
     public static void main(String[] args) {
 
-        Stack<Character> stack = new Stack<>();
-
-        try {
-            stack.pop();
-        } catch (EmptyStackException e) {
-            System.out.println("Stack is empty");
-        }
-
+        Stack<String> a = new Stack<>();
+        a.push("asdf");
+        a.push("afds");
+        a.peek();
+        a.pop();
+        a.pop();
+        System.out.println(a);
+        System.out.println(a.empty());
 
     }
 }
