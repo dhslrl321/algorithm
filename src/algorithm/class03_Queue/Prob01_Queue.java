@@ -3,6 +3,7 @@ package algorithm.class03_Queue;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Prob01_Queue {
     public static void main(String[] args) {
@@ -16,7 +17,9 @@ public class Prob01_Queue {
             String stmt = input.nextLine();
             if(stmt.length() >= 6) {
                 String[] arr = stmt.split(" ");
-                int num = Integer.parseInt(arr[1]);
+                StringTokenizer st = new StringTokenizer(stmt, " ");
+                st.nextToken();
+                int num = Integer.parseInt(st.nextToken());
                 queue.push(num);
             }
             else if(stmt.equals("pop")) ans.add(queue.pop());
@@ -28,6 +31,7 @@ public class Prob01_Queue {
         }
 
         for(int res : ans) System.out.println(res);
+
     }
 }
 
@@ -44,30 +48,37 @@ class MyQueue {
         queue = new int[max];
     }
 
-    void push(int x){
-        queue[rear++] = x;
-    }
-
-    int pop(){
-        if(empty() == 1) return -1;
-        else return queue[front++];
-    }
-
-    int size(){
-        return (rear - front) + 1;
-    }
-
+    // empty 비어있으면 1 차있으면 0
     int empty(){
-        if(front >= rear) return 1;
+        if (rear == front) return 1; // 비어있을 때
+        return 0;
+    }
+
+    int full(){
+        if(rear == max) return 1;
         else return 0;
+    }
+
+    void push(int x){
+        if(full() == 1) throw new ArrayIndexOutOfBoundsException();
+        else queue[rear++] = x;
     }
 
     int front(){
         if(empty() == 1) return -1;
-        else return queue[front];
+        return queue[front];
     }
     int back(){
         if(empty() == 1) return -1;
-        else return queue[rear];
+        return queue[rear-1];
     }
+    int pop(){
+        if(empty() == 1) return -1;
+        return queue[front++];
+    }
+
+    int size(){
+        return rear - front;
+    }
+
 }
