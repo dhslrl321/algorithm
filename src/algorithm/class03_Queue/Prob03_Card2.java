@@ -11,13 +11,11 @@ public class Prob03_Card2 {
         Scanner input = new Scanner(System.in);
         boolean toggleFlag = false;
         int n = input.nextInt();
-        int count = n;
         for (int i = 1; i <= n; i++) {
             q.add(i);
         }
 
         while(q.size() > 1){
-            System.out.println(q);
             if(!toggleFlag){
                 q.poll();
                 toggleFlag = true;
@@ -25,8 +23,6 @@ public class Prob03_Card2 {
                 q.add(q.poll());
                 toggleFlag = false;
             }
-
-            count--;
         }
 
         System.out.println(q.peek());
