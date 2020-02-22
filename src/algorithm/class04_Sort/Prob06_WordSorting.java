@@ -16,15 +16,31 @@ public class Prob06_WordSorting {
             arr[i] = arr[i].toLowerCase();
         }
 
+        list.addAll(Arrays.asList(arr)); //addAll 하면 리스트로 배열을 바꿀 수있
+        Collections.sort(list);
+
+        for (int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
+        }
+
         quickSort(arr);
-
-        for(String ans : arr) System.out.println(ans);
+        list = duplication(arr);
+        for (String a : list) System.out.println(a);
 
     }
 
-    private static void quickSort(String[] arr) {
-        quickSort(arr, 0, arr.length-1);
+    private static ArrayList<String> duplication(String[] arr){
+
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(arr));
+
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (list.get(i).equals(list.get(i + 1))) {
+                list.remove(i+1);
+            }
+        }
+        return list;
     }
+    private static void quickSort(String[] arr){ quickSort(arr, 0, arr.length - 1);}
     private static void quickSort(String[] arr, int start, int end){
         int part2 = partitioning(arr, start, end);
         if(start < part2 - 1) quickSort(arr, start, part2 - 1);
@@ -34,9 +50,9 @@ public class Prob06_WordSorting {
     private static int partitioning(String[] arr, int start, int end){
         int pivot = arr[(start + end) / 2].length();
         while(start <= end){
-            while(arr[start].length() < arr[pivot].length()) start++;
-            while(arr[pivot].length() > arr[end].length()) end--;
-            if(start >= end){
+            while(arr[start].length() < pivot) start++;
+            while(arr[end].length() > pivot) end--;
+            if(start<=end){
                 swap(arr, start, end);
                 start++;
                 end--;
@@ -44,7 +60,6 @@ public class Prob06_WordSorting {
         }
         return start;
     }
-
     private static void swap(String[] arr, int idx1, int idx2){
         String temp = arr[idx1];
         arr[idx1] = arr[idx2];
