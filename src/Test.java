@@ -6,9 +6,12 @@ public class Test {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int n = input.nextInt();
+        String a = "ABC";
 
-        Stack<Integer> stack = new Stack<>();
+        String[] arr = a.split("");
+        System.out.println(Arrays.toString(arr));
+        System.out.println();
+        System.out.println("A".getBytes());
 
     }
 }
