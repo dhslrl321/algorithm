@@ -5,65 +5,41 @@ import java.util.*;
 public class Prob06_WordSorting {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String[] arr = new String[input.nextInt()];
-        ArrayList<String> list = new ArrayList<>();
 
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = input.next();
+        int n = input.nextInt();
+
+        String[] word = new String[n];
+
+        for (int i = 0; i < word.length; i++) {
+            word[i] = input.next();
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = arr[i].toLowerCase();
-        }
+        // 길이로 정렬
 
-        list.addAll(Arrays.asList(arr)); //addAll 하면 리스트로 배열을 바꿀 수있
-        Collections.sort(list);
-
-        for (int i = 0; i < list.size(); i++) {
-            arr[i] = list.get(i);
-        }
-
-        quickSort(arr);
-        list = duplication(arr);
-        for (String a : list) System.out.println(a);
-
-    }
-
-    private static ArrayList<String> duplication(String[] arr){
-
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(arr));
-
-        for (int i = 0; i < list.size() - 1; i++) {
-            if (list.get(i).equals(list.get(i + 1))) {
-                list.remove(i+1);
+        Arrays.sort(word, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.compare(o1.length(), o2.length());
             }
-        }
-        return list;
-    }
-    private static void quickSort(String[] arr){ quickSort(arr, 0, arr.length - 1);}
-    private static void quickSort(String[] arr, int start, int end){
-        int part2 = partitioning(arr, start, end);
-        if(start < part2 - 1) quickSort(arr, start, part2 - 1);
-        if(part2 < end) quickSort(arr, part2, end);
-    }
+        });
+        int j;
+        for (int i = 0; i < word.length; i++) {
+            int len = word[i].length();
 
-    private static int partitioning(String[] arr, int start, int end){
-        int pivot = arr[(start + end) / 2].length();
-        while(start <= end){
-            while(arr[start].length() < pivot) start++;
-            while(arr[end].length() > pivot) end--;
-            if(start<=end){
-                swap(arr, start, end);
-                start++;
-                end--;
+            for (j = i + 1; j < word.length - 1; j++) {
+                if(word[i].length() != word[j].length()) break;
             }
+            Arrays.sort(word, i, j);
+            i = j - 1;
         }
-        return start;
-    }
-    private static void swap(String[] arr, int idx1, int idx2){
-        String temp = arr[idx1];
-        arr[idx1] = arr[idx2];
-        arr[idx2] = temp;
+
+        for (int i = 0; i < word.length - 1; i++) {
+            if(!word[i].equals(word[i+1])){
+                System.out.println(word[i]);
+            }
+            if(i == word.length - 2) System.out.println(word[word.length - 1]);
+        }
+
     }
 }
 
