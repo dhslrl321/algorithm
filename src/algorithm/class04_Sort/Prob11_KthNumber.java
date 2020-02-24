@@ -18,16 +18,17 @@ public class Prob11_KthNumber {
 
         quickSort(arr);
 
+
         System.out.println(arr[k-1]);
     }
 
-    private static void quickSort(int[] arr, int k){
-        quickSort(arr, 0, arr.length-1, k);
+    private static void quickSort(int[] arr){
+        quickSort(arr, 0, arr.length-1);
     }
 
-    private static void quickSort(int[] arr, int start, int end, int k){
+    private static void quickSort(int[] arr, int start, int end){
         int part2 = partitioning(arr, start, end);
-        if(part2 == k) return arr[k]
+        //if(part2 == k) return arr[k]
         if(start < part2 - 1) quickSort(arr, start, part2 - 1);
         if(part2 - 1 > end) quickSort(arr, part2, end);
     }
