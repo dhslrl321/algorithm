@@ -1,6 +1,7 @@
 package algorithm.class05_BruteForce;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Prob01_BlackJack {
@@ -28,16 +29,18 @@ public class Prob01_BlackJack {
             }
         }
         int minIdx = 0;
-
-        if(!list.isEmpty()){
+        try {
             int min = m - list.get(0);
+            minIdx = 0;
             for (int i = 0; i < list.size(); i++) {
-                if(min >= m - list.get(i)) minIdx = i;
+                if(min > m - list.get(i)) minIdx = i;
+                //System.out.println(list.get(i));
             }
-            System.out.println(list.get(minIdx));
+            Collections.sort(list);
+            System.out.println(list.get(list.size()));
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
-
-
     }
 
 
