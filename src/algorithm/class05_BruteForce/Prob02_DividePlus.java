@@ -14,14 +14,14 @@ public class Prob02_DividePlus {
         int sum;
 
         while(temp >= 0){
+            temp--;
             sum = temp;
             int comp = temp;
             while(comp > 0){
                 sum += comp % 10;
                 comp /= 10;
             }
-            if (sum == temp) res = sum;
-            temp--;
+            if (sum == x) res = temp;
         }
         System.out.println(res);
     }
