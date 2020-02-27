@@ -19,6 +19,16 @@ public class Prob03_BigMan {
             weight[i] = input.nextInt();
             height[i] = input.nextInt();
         }
+        int cnt = 0;
+        for (int i = 0; i < n-1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if(weight[i] < weight[j] && height[i] < height[j]) {
+                    cnt++;
+                    rank[i] = cnt;
+                }
+            }
+        }
 
+        for(int iter : rank) System.out.println(iter);
     }
 }
