@@ -9,5 +9,15 @@ public class Prob01_FindParent {
         int n = input.nextInt();
 
         ArrayList< ArrayList<Integer> > list = new ArrayList<ArrayList<Integer>>();
+        int[] parents = new int[n+1];
+        int i;
+        for (i = 0; i < n + 1; i++) {
+            list.add(new ArrayList<Integer>());
+        }
+
+        int a, b;
+        for(i = 1; i < n; i++){
+
+        }
     }
 }
