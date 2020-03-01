@@ -23,7 +23,7 @@ public class Prob01_DFSBFS {
         // 연결리스트에 각 노드 추가
         for (int i = 0; i < edge; i++) {
             int a1 = input.nextInt();
-            int a2 = input.nextInt():
+            int a2 = input.nextInt();
 
             adjList[a1].add(a2);
             adjList[a2].add(a1);
