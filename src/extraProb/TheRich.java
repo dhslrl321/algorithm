@@ -15,6 +15,6 @@ public class TheRich {
         BigInteger val = moneyB;
         System.out.println(moneyB.divide(mB));
 
-        System.out.println(moneyB - (moneyB.subtract(mB)));
+        //System.out.println(moneyB - (moneyB.subtract(mB)));
     }
 }
