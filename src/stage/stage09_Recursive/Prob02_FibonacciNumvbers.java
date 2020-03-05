@@ -9,7 +9,7 @@ public class Prob02_FibonacciNumvbers {
         System.out.println(fibonacci(num));
     }
 
-    static int fibonacci(int num){
+    private static int fibonacci(int num){
         if(num >= 2) return fibonacci(num - 1) + fibonacci(num - 2);
         else return num;
     }
