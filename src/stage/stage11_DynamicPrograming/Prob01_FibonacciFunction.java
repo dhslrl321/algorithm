@@ -21,11 +21,11 @@ public class Prob01_FibonacciFunction {
             n[i] = input.nextInt();
         }
 
-        for (int i = 0; i < n.length; i++) {
+        for (int value : n) {
             countZ = 0;
             countO = 0;
 
-            fibonacci(n[i]);
+            fibonacci(value);
             System.out.println(countZ + " " + countO);
         }
     }
