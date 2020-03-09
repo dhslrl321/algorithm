@@ -14,5 +14,6 @@ public class Prob02_HugeRich {
         BigInteger mod = n.remainder(m);
         System.out.println(div);
         System.out.println(mod);
+        
     }
 }
