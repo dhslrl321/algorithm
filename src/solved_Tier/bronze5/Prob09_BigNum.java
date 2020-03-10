@@ -1,9 +1,9 @@
-package solved_Bronze;
+package solved_Tier.bronze5;
 
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Prob01_LongCal {
+public class Prob09_BigNum {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -11,7 +11,5 @@ public class Prob01_LongCal {
         BigInteger b = input.nextBigInteger();
 
         System.out.println(a.add(b));
-        System.out.println(a.subtract(b));
-        System.out.println(a.multiply(b));
     }
 }

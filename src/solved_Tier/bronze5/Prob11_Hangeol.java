@@ -1,4 +1,4 @@
-package solved_Bronze;
+package solved_Tier.bronze5;
 
 public class Prob11_Hangeol {
     public static void main(String[] args) {

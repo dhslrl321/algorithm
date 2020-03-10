@@ -1,16 +1,16 @@
-package solved_Bronze;
+package solved_Tier.bronze5;
 
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Prob13_BigMult {
+public class Prob12_LittleJungmin {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         BigInteger a = input.nextBigInteger();
-
         BigInteger b = input.nextBigInteger();
+        BigInteger c = input.nextBigInteger();
 
-        System.out.println(a.multiply(b));
+        System.out.println(a.add(b.add(c)));
     }
 }

@@ -1,4 +1,4 @@
-package solved_Bronze;
+package solved_Tier.bronze5;
 
 import java.math.BigInteger;
 import java.util.Scanner;
