@@ -13,7 +13,6 @@ public class Prob03_OvenWatch {
         b += c;
 
         a += b / 60;
-        b = (b / 60) - 
         System.out.print(a + " " + b);
     }
 }
