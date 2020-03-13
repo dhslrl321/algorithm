@@ -18,6 +18,7 @@ public class Test {
         System.out.println("//////////////");
         Arrays.sort(arr);
         System.out.println(Arrays.binarySearch(arr, 10));
+
     }
 
     static boolean binarySearch(int[] arr, int key){
