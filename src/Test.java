@@ -1,17 +1,23 @@
+import java.io.*;
 import java.util.*;
 
 public class Test {
-    public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(10);
-        stack.push(10);
-        stack.push(10);
-        stack.push(10);
+    public static void main(String[] args) throws IOException {
+        // reader
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        // writer
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        System.out.println(stack.isEmpty());
-        String a = "hello";
+        // testCase 받기
+        int t = Integer.parseInt(bf.readLine());
 
-        a += "world";
-        System.out.println(a);
+
+
+
+        bw.write(t);
+
+        bw.flush();
+        bw.close();
+
     }
 }
