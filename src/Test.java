@@ -11,10 +11,10 @@ public class Test {
         // testCase 받기
         int t = Integer.parseInt(bf.readLine());
 
+        System.out.println(Math.min(10, 20));
 
 
-
-        bw.write(t);
+        bw.write(t + "\n");
 
         bw.flush();
         bw.close();
