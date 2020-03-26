@@ -22,8 +22,8 @@ public class Prob03_2nTiling {
 
         memo[1] = 1;
         memo[2] = 2;
-        memo[n] = memo[n-1] + memo[n-2];
-
+        memo[n] = dp(n-1) + dp(n-2);
+        memo[n] %= 10007;
         return memo[n];
     }
 
