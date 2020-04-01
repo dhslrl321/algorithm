@@ -2,7 +2,7 @@ package stage.stage11_DynamicPrograming;
 
 import java.io.*;
 
-public class Prob03_2nTilingBTP {
+public class Prob03_2nTilingBTU {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
