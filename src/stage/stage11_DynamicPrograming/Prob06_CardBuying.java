@@ -13,7 +13,6 @@ public class Prob06_CardBuying {
         output.write(num + "\n");
         output.flush();
         output.close();
-
     }
 
     private static int d(int n){
