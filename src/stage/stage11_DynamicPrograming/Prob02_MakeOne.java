@@ -1,6 +1,5 @@
 package stage.stage11_DynamicPrograming;
 
-import java.util.Scanner;
 import java.io.*;
 
 public class Prob02_MakeOne {
