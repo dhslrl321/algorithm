@@ -13,18 +13,19 @@ public class Prob06_CardBuying {
         BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(input.readLine());
-
         StringTokenizer st = new StringTokenizer(input.readLine());
-        arr = new int[n];
-        int i = 0;
-
-        while(st.hasMoreTokens()){
+        int[] arr = new int[n+1];
+        for (int i = 1; i < n+1; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            i++;
         }
 
-
-        output.write("\n");
+        int[] d = new int[n+1];
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                d[i] = Math.max(d[i], d[i-j] + arr[j]);
+            }
+        }
+        output.write(d[n] + "\n");
         output.flush();
         output.close();
     }
