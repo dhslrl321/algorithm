@@ -6,7 +6,6 @@ import java.util.StringTokenizer;
 
 public class Prob09_Stairs {
 
-    static int[] memo = new int[301];
 
     public static void main(String[] args) throws IOException{
 
@@ -14,22 +13,22 @@ public class Prob09_Stairs {
         BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(input.readLine());
-        int[] arr = new int[n];
+        int[] arr = new int[n+1];
+        int[] d = new int[n+1];
+
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(input.readLine());
         }
 
-        output.write(d(n, arr) + "\n");
-
+        for (int i = 0; i < d.length; i++) {
+            for (int j = 0; j < i; j++) {
+                d[i] = Math.max(d[n-1] + arr[j], d[n-2] + arr[j]);
+            }
+        }
+        output.write(d[n] + "\n");
         output.flush();
         output.close();
     }
 
-    private static int d(int n, int[] arr){
-        if(memo[n] > 0) return memo[n];
-        memo[0] = arr[0];
-        memo[1] = arr[1];
-        memo[n] = Math.max(d(n-1, arr) + memo[n-3], d(n-2, arr) + memo[n-2]);
-        return memo[n];
-    }
+
 }
