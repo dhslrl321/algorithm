@@ -13,20 +13,20 @@ public class Prob09_Stairs {
         BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(input.readLine());
-        int[] arr = new int[n];
-        int[] d = new int[n];
+        int[] arr = new int[n+1];
+        int[] d = new int[n+1];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             arr[i] = Integer.parseInt(input.readLine());
         }
 
-        d[0] = arr[0];
-        d[1] = arr[0] + arr[1];
-
-        for (int i = 2; i < n; i++) {
-            d[i] = Math.max(d[i-2] + arr[i], d[i-1] + arr[i+1]);
+        d[1] = arr[1];
+        if (n >= 2) d[2] = arr[1] + arr[2];
+        d[3] = Math.max(arr[1] + arr[2], arr[3]);
+        for (int i = 3; i <= n; i++) {
+            d[i] = Math.max(d[i-3] + arr[i-1] + arr[i], d[i-2] + arr[i]);
         }
-        output.write(Arrays.toString(d) + "\n");
+        output.write(d[n] + "\n");
         output.flush();
         output.close();
     }
