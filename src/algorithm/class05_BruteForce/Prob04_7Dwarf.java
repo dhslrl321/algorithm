@@ -14,13 +14,6 @@ public class Prob04_7Dwarf {
             sum += arr[i];
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 1; j < arr.length; j++) {
-                if(arr[i] - arr[j] - sum == 100) bw.write()
-            }
-        }
-
-
         bw.flush();
         bw.close();
     }
