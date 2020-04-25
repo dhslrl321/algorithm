@@ -31,7 +31,7 @@ public class Prob03_ATM {
             sum += arr[i];
         }
 
-        
+
         bw.write(String.valueOf(sum));
         bw.flush();
         bw.close();
