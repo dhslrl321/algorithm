@@ -7,9 +7,8 @@ public class Prob02_SugarDelivery {
         Scanner input = new Scanner(System.in);
 
         int sugar = input.nextInt();
+        int count = 0;
 
-        if((sugar % 5 == 0) && (sugar % 3 == 0)){
 
-        }else System.out.println(-1);
     }
 }
