@@ -7,8 +7,6 @@ public class Prob02_SugarDelivery {
         Scanner input = new Scanner(System.in);
 
         int sugar = input.nextInt();
-        int count = 0;
-
-
+        
     }
 }
