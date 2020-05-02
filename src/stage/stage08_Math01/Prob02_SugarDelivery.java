@@ -10,6 +10,8 @@ public class Prob02_SugarDelivery {
         sugar += 10;
         sugar += 20;
         sugar += 30;
+        sugar += 40;
+        sugar += 50;
         
     }
 }
