@@ -9,6 +9,7 @@ public class Prob02_SugarDelivery {
         int sugar = input.nextInt();
         sugar += 10;
         sugar += 20;
+        sugar += 30;
         
     }
 }
