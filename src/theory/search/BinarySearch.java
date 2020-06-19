@@ -15,7 +15,7 @@ public class BinarySearch {
         System.out.println("index : " + loop +  " 반복문 사용");
         System.out.println("index : " + recursion + " 재귀 호출 사용");
     }
-    static int binarySearch_Loop(int[] arr, int key, int start, int end){
+    private static int binarySearch_Loop(int[] arr, int key, int start, int end){
 
         while (start <= end) {
             int mid = (start + end) / 2;
@@ -34,7 +34,7 @@ public class BinarySearch {
         return start - 1;
     }
 
-    static int binarySearch_Recursion(int[] arr, int key, int start, int end){
+    private static int binarySearch_Recursion(int[] arr, int key, int start, int end){
         int mid = (start + end) / 2;
         if(arr[mid] < key) return binarySearch_Recursion(arr, key, mid + 1, end);
         else if(arr[mid] > key) return binarySearch_Recursion(arr, key, start, end - 1);
