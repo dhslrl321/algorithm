@@ -1,11 +1,19 @@
 package algorithm.class01_BinarySearch;
 
+import java.util.Arrays;
+
 public class Prob00_MyBS {
     public static void main(String[] args) {
-        int[] arr = {5, 2, 3, 9, 8, 7, 6, 1, 4};
-        int key = 3;
+        int[] arr = {5,1,23,11,4,15,2,3,55,7};
+        // 1, 2, 3, 4, 5, 6, 7, 8, 9
+        int key = 1;
 
-        System.out.println(binarySearch_Loop(arr, key));
+        Arrays.sort(arr);
+        int loop = binarySearch_Loop(arr, key);
+        int recursion = binarySearch_Recursion(arr, key, 0, arr.length-1);
+
+        System.out.println("index : " + loop +  " 반복문 사용");
+        System.out.println("index : " + recursion + " 재귀 호출 사용");
 
     }
 
@@ -27,11 +35,14 @@ public class Prob00_MyBS {
             }
 
         }
-        return start;
+        return start - 1;
     }
 
-    static int binarySearch_Recursion(){
-        return 0;
+    static int binarySearch_Recursion(int[] arr, int key, int start, int end){
+        int mid = (start + end) / 2;
+        if(arr[mid] < key) return binarySearch_Recursion(arr, key, mid + 1, end);
+        else if(arr[mid] > key) return binarySearch_Recursion(arr, key, start, end - 1);
+        return mid;
     }
 }
 
