@@ -51,6 +51,7 @@ class Student_Prob12 implements Comparable<Student_Prob12>{
                 if(this.math > o.math) return -1;
                 else if(this.math == o.math) {
                     return this.name.compareTo(o.name);
+                    //return o.name.compareTo(this.name);
                 }
                 else return 1;
             }
