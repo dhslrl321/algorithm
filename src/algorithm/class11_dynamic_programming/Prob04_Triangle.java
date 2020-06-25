@@ -17,6 +17,18 @@ public class Prob04_Triangle {
             }
         }
 
+        int[][] dp = new int[n+1][n+1];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                if(i == j || j == 0) {
+                    dp[i][j] = dp[i-1][0] + arr[i][j];
+                }else {
+
+                }
+            }
+        }
+
         bw.flush();
         bw.close();
     }
