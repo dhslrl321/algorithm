@@ -33,6 +33,6 @@ class Adjacency_List {
     private int vertex;
 
     Adjacency_List(int vertex) {
-        
+
     }
 }
