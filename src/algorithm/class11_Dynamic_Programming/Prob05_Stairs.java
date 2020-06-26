@@ -4,22 +4,26 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Prob05_Stairs {
+    static int[] a = new int[301];
+    static int[] d = new int[301];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
-        int[] a = new int[n+1];
-        int[] d = new int[n+1];
-        for (int i = 1; i < n+1; i++) {
+
+        for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
 
-        d[1] = Math.max(a[1], a[2]);
+        d[0] = a[0];
+        d[1] = Math.max(a[1], a[0] + a[1]);
+        d[2] = Math.max(a[1] + a[2], a[0] + a[2]);
 
-        for (int i = 2; i < n+1; i++) {
-            d[i] = Math.max(d[i-1] + a[i], d[i-2] + a[i]);
+        for (int i = 3; i < n; i++) {
+            d[i] = Math.max(d[i-2] + a[i], d[i-3] + a[i-1] + a[i]);
         }
 
-        System.out.println(Arrays.toString(d));
+        System.out.println(d[n - 1]);
+
     }
 }
