@@ -1,6 +1,5 @@
-package algorithm.class11_dynamic_programming;
+package algorithm.class11_Dynamic_Programming;
 
-import java.util.*;
 import java.io.*;
 
 public class Prob01_Fibonacci {
