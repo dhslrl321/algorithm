@@ -44,6 +44,9 @@ public class Prob02_MeetingRoom {
 
         @Override
         public int compareTo(Team o) {
+            if(this.end == o.end) {
+                return this.start - o.start;
+            }
             return this.end - o.end;
         }
     }

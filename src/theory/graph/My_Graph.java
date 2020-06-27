@@ -32,7 +32,27 @@ class Adjacency_List {
     private LinkedList<Object>[] adjLists;
     private int vertex;
 
-    Adjacency_List(int vertex) {
+    private static class GraphNode {
+        int vertex;
+        GraphNode link;
+    }
 
+    GraphNode[] head = new GraphNode[10];
+    int totalVertex = 0;
+
+    void  insertVertex(int v){
+        totalVertex ++;
+    }
+
+    void insertEdge(int v1, int v2) {
+        if(totalVertex <= v1 || totalVertex <= v2){
+            System.out.println("그래프에 없는 정점 입니다.");
+        }else {
+            GraphNode node = new GraphNode();
+            node.vertex = v2;
+            node.link = head[v1];
+            head[v1] = node;
+
+        }
     }
 }
