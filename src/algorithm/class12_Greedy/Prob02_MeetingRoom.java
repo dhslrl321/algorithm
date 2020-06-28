@@ -23,12 +23,11 @@ public class Prob02_MeetingRoom {
         int start = teams[0].start;
         int end = teams[0].end;
         for (int i = 1; i < n; i++) {
-            if(end <= teams[i].start ) {
+            if (end <= teams[i].start) {
                 count++;
                 end = teams[i].end;
             }
         }
-
         bw.write(String.valueOf(count));
         bw.flush();
         bw.close();
