@@ -17,7 +17,7 @@ public class Prob05_Sort {
                 }else return -1;
             }
         });
-        
+
         System.out.println(Arrays.toString(strings));
 
     }
