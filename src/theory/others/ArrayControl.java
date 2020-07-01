@@ -6,8 +6,10 @@ public class ArrayControl {
     public static void main(String[] args) {
         System.out.println(maxThree(11, 13, 10));
 
-        int[] rightRotateArray = {1,2,3,4,5};
-        System.out.println(Arrays.toString(rightRotate(rightRotateArray, 1, 4)));
+        int[] rotateArray1 = {1,2,3,4,5};
+        int[] rotateArray2 = {1,2,3,4,5};
+        System.out.println(Arrays.toString(rightRotate(rotateArray1, 1, 4)));
+        System.out.println(Arrays.toString(leftRotate(rotateArray2, 1, 4)));
     }
 
     /* 세 수를 받아 최대 구하기.*/
@@ -24,10 +26,21 @@ public class ArrayControl {
     /* s, k 인덱스를 받아 서로 변경하고 회전된 배열 구하기. */
     private static int[] rightRotate(int[] arr, int s, int k){
         int temp = arr[k];
-        arr[s] = temp;
         for (int i = k; i > s; i--) {
             arr[i] = arr[i-1];
         }
+        arr[s] = temp;
         return arr;
     }
+
+    private static int[] leftRotate(int[] arr, int s, int k){
+        int temp = arr[s];
+        for(int i = s; i < k; i++){
+            arr[i] = arr[i+1];
+        }
+        arr[k] = temp;
+        return arr;
+    }
+
+    /**/
 }
