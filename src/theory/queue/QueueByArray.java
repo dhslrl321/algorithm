@@ -4,7 +4,14 @@ import java.util.Arrays;
 
 public class QueueByArray {
     public static void main(String[] args) {
+        My_QueueByArray queue = new My_QueueByArray();
 
+        queue.enqueue(10);
+        queue.enqueue(30);
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        System.out.println(Arrays.toString(queue.queue));
     }
 }
 
@@ -17,16 +24,20 @@ class My_QueueByArray {
         if(tail == 7) {
             System.out.println("Queue is Full");
         }
-        queue[head] = value;
-        head++;
+        queue[tail] = value;
+        tail++;
     }
 
     int dequeue() {
-        if(tail == head) {
+        if(head == tail) {
             System.out.println("Queue is Empty");
             return -1;
         }
-
-        return 0;
+        int ret = queue[head];
+        for(int i = 0; i < 7; i++){
+            queue[i] = queue[i+1];
+        }
+        tail--;
+        return ret;
     }
 }
