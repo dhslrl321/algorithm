@@ -37,6 +37,7 @@ class My_QueueByArray {
         for(int i = 0; i < 7; i++){
             queue[i] = queue[i+1];
         }
+
         tail--;
         return ret;
     }
