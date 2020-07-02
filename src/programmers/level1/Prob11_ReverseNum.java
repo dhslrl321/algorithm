@@ -6,11 +6,10 @@ import java.util.Comparator;
 
 public class Prob11_ReverseNum {
     public static void main(String[] args) {
-        String[] a = {"3", "2", "1", "9", "5", "4"};
-        Arrays.sort(a, Collections.reverseOrder());
-        System.out.println(Arrays.toString(a));
+        int[] arr = {5, 4, 3, 2, 1};
+        System.out.println(Arrays.toString(solution(arr)));
     }
-    private int[] solution(int[] arr) {
+    private static int[] solution(int[] arr) {
         int[] answer;
         if(arr.length == 1) {
             answer = new int[1];
@@ -19,7 +18,7 @@ public class Prob11_ReverseNum {
         }
         int min = arr[0];
         for(int i = 0; i < arr.length; i++){
-            Math.min(min, arr[i]);
+            min = Math.min(min, arr[i]);
         }
         answer = new int[arr.length-1];
         int index = 0;
