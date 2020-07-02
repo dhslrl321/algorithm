@@ -20,7 +20,7 @@ public class Prob08_Wine {
         if (n >= 3) d[2] = Math.max(arr[0] + arr[2], arr[1] + arr[2]);
 
         for (int i = 3; i < n; i++) {
-            d[i] = Math.max(d[i-3] + arr[i-2] + arr[1], d[i-2] + arr[i]);
+            d[i] = Math.max(d[i-3] + arr[i-2] + arr[i], d[i-2] + arr[i]);
             d[i] = Math.max(d[i-1], d[i]);
         }
 
