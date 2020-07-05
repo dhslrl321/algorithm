@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4};
-        int[] arr2 = {4, 5, 6, 7};
-        int[] arr3 = {};
+        int n  = 5;
+        int[] arr1 = {20, 9, 1, 6, 15};
+        int[] arr2 = {11, 5, 3, 2, 8};
 
-        for(int iter : arr3){
-            System.out.println("hello");
+        String[] answer = new String[n];
+        String[] map = new String[n];
+        for(int i = 0; i < n; i++){
+            map[i] = Integer.toBinaryString(arr1[i] | arr2[i]);
         }
-    }
 
-    private static void hello(){
-
+        System.out.println(Arrays.toString(map));
     }
 
 }
