@@ -1,15 +1,21 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        String a = "a ";
-        String b = " b ";
-        String c = " c";
+        int[] arr = {1, 2, 3, 4};
+        int[] arr2 = {4, 5, 6, 7};
+        int[] arr3 = {};
 
-        String abc = a+b+c;
-        System.out.println(abc);
-        String d = "asdf";
-        abc += d;
-        System.out.println(abc);
+        for(int iter : arr3){
+            System.out.println("hello");
+        }
+    }
+
+    private static void hello(){
+
     }
 
 }
