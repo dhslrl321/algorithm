@@ -4,18 +4,31 @@ import java.util.Collections;
 import java.util.List;
 
 public class Test {
-    public static void main(String[] args) {
-        int n  = 5;
-        int[] arr1 = {20, 9, 1, 6, 15};
-        int[] arr2 = {11, 5, 3, 2, 8};
+    static int data = 30;
 
-        String[] answer = new String[n];
-        String[] map = new String[n];
-        for(int i = 0; i < n; i++){
-            map[i] = Integer.toBinaryString(arr1[i] | arr2[i]);
-        }
+    public static void main(String args[])
 
-        System.out.println(Arrays.toString(map));
+    {
+
+        int data = 40;
+
+        data ++;
+
+        System.out.println(data);
+
+        func1(data);
+
     }
 
+
+
+    static void func1(int data)
+
+    {
+
+        data ++;
+
+        System.out.println(data);
+
+    }
 }
