@@ -6,7 +6,7 @@ public class Prob12_TreasureMap {
     public static void main(String[] args) {
         int[] arr1 = {46, 33, 33, 22, 31, 50};
         int[] arr2 = {27, 56, 19, 14, 14, 10};
-        
+
     }
 
     public String[] solution(int n, int[] arr1, int[] arr2) {
