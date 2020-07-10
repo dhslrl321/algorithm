@@ -15,6 +15,6 @@ public class QueueMain {
         }
 
         /*enqueue*/
-        
+        /*dequeue*/
     }
 }
