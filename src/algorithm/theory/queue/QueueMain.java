@@ -16,5 +16,8 @@ public class QueueMain {
 
         /*enqueue*/
         /*dequeue*/
+        /*isEmpty*/
+        /*size*/
+        /*toString*/
     }
 }
