@@ -6,6 +6,15 @@ public class QueueMain {
     }
 
     private static class Queue{
+        int[] arr;
+        int size;
+
+        Queue(int size){
+            this.size = size;
+            arr = new int[this.size];
+        }
+
+        /*enqueue*/
         
     }
 }
