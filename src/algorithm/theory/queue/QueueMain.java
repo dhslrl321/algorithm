@@ -10,17 +10,18 @@ public class QueueMain {
     private static class Queue{
         int[] arr;
         int size;
-        int ptr;
+        int front, rear;
         Queue(int size){
-            ptr = 0;
+            front = 0;
+            rear = 0;
             this.size = size;
             arr = new int[this.size];
         }
 
         /*enqueue*/
         void enqueue(int data){
-            if(ptr < size){
-                arr[ptr++] = data;
+            if(rear < size) {
+                arr[rear++] = data;
             }else {
                 System.out.println("Queue is Full");
             }
@@ -28,27 +29,13 @@ public class QueueMain {
 
         /*dequeue*/
         int dequeue(){
-            if(ptr > 0){
-                return arr[ptr--];
-            }else {
-                System.out.println("Queue is Empty");
-                return -1;
-            }
-        }
-
-        /*isEmpty*/
-        boolean isEmpty(){
-            return ptr == 0;
+            if()
         }
 
         /*size*/
-        int size(){
-            return ptr;
-        }
+
+        /*isEmpty*/
 
         /*toString*/
-        String toStringQueue(){
-            return Arrays.toString(arr);
-        }
     }
 }
