@@ -27,11 +27,6 @@ public class QueueMain {
             }
         }
 
-        /*dequeue*/
-        int dequeue(){
-            if()
-        }
-
         /*size*/
 
         /*isEmpty*/
