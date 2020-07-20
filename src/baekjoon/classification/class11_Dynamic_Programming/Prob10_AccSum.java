@@ -16,10 +16,6 @@ public class Prob10_AccSum {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-
-
-
-
         bw.flush();
         bw.close();
     }
