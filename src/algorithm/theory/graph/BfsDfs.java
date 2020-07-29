@@ -3,6 +3,7 @@ package algorithm.theory.graph;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BfsDfs {
     public static void main(String[] args) {
@@ -42,6 +43,72 @@ class Graph {
         if(!n2.adjacency.contains(n1)) {
             n2.adjacency.add(n1);
         }
+    }
+
+    void dfs() {
+        dfs(0);
+    }
+
+    void dfs(int index) {
+        Node root = nodes[index];
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        root.marked = true;
+        while(!stack.isEmpty()){
+            Node r = stack.pop();
+            for(Node n : r.adjacency){
+                if(!n.marked){
+                    n.marked = true;
+                    stack.push(n);
+                }
+            }
+            visit(r);
+        }
+    }
+
+    void bfs() {
+        bfs(0);
+    }
+
+    void bfs(int index) {
+        Node root = nodes[index];
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        root.marked = true;
+        while(!queue.isEmpty()) {
+            Node r = queue.poll();
+            for(Node n : r.adjacency){
+
+                if (!n.marked) {
+                    n.marked = true;
+                    queue.poll();
+                }
+            }
+        }
+    }
+
+    void dfsR(Node r){
+        if (r == null) return;
+        r.marked = true;
+        visit(r);
+        for(Node n : r.adjacency){
+            if(!n.marked) {
+                dfsR(n);
+            }
+        }
+    }
+
+    void dfsR(int index) {
+        Node r = nodes[index];
+        dfsR(r);
+    }
+
+    void dfsR() {
+        dfsR(0);
+    }
+
+    void visit(Node n) {
+        System.out.println(n.data + " ");
     }
 }
 
