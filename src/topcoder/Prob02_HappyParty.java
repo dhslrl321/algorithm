@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Prob02_HappyParty {
     public static void main(String[] args) {
         String[] arr1 = {"fishing", "fishing", "parking", "sounding"};
-        String[] arr2 = {"hunting", "hunting", "hunting", "singing"};
+        String[] arr2 = {"hunting", "hunting", "hunting", "fishing"};
 
         System.out.println("return: " + solution(arr1, arr2));
     }
