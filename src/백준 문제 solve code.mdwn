@@ -1,0 +1,9 @@
+# 문제
+
+- Stack
+- Queue
+
+## Stack
+
+1. 3986 좋은 단어 [제출 소스코드](https://www.acmicpc.net/source/25293042)
+2. 1874 스택 수열 [제출 소스코드]()
