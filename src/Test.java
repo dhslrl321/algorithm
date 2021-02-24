@@ -1,35 +1,31 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.Comparator;
-
 public class Test {
     public static void main(String[] args) {
-        BufferedReader in = null;
-        try {
-            int loop = 50000;
-            while(loop-- > 0) {
-                StringBuilder sb = new StringBuilder("http://ctf.j0n9hyun.xyz:2025/?page=");
-                sb.append(Math.abs(loop - 50000));
-                URL obj = new URL(sb.toString());
-                HttpURLConnection con = (HttpURLConnection)obj.openConnection();
-                con.setRequestMethod("GET");
-                in = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
-                String[] line = in.toString().split(" ");
-                System.out.println(line[0]);
+        int[] arr = {1, 1, 9, 1, 1, 1, 0, 3};
+
+        int max = Integer.MIN_VALUE;
+
+        int size = arr.length;
+        int count = 0;
+        for (int i = 0; i < size - 2; i++) {
+            int t1 = getSum(arr, 0, i);
+            for (int j = i + 1; j < size - 1; j++) {
+                int t2 = getSum(arr, i + 1, j);
+                int t3 = getSum(arr, j + 1, arr.length-1);
+                System.out.print("t1 의 범위 : " + 0 + " ~ " + i);
+                System.out.print(" t2 의 범위 : " + (i + 1) + " ~ " + j);
+                System.out.println(" t3 의 범위 : " + (j + 1) + " ~ " + (arr.length-1));
+                max = Math.max(max, t1 * t2 * t3);
+                count++;
             }
-        } catch(Exception e) {
-            e.printStackTrace();
-        } finally {
-            if(in != null)
-                try {
-                in.close();
-                } catch(Exception e) {
-                    e.printStackTrace();
-                }
         }
+        System.out.println(max);
+        System.out.println("count : " + count);
+    }
+    private static int getSum(int[] arr, int start, int end){
+        int sum = 0;
+        for (int i = start; i <= end; i++) {
+            sum += arr[i];
+        }
+        return sum;
     }
 }
-

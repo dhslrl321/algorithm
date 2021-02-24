@@ -1,45 +1,45 @@
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
 
-    static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
-    static boolean[] visited;
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int t = Integer.parseInt(br.readLine());
-        while(t-- > 0) {
-            int n = Integer.parseInt(br.readLine());
-            for(int i = 0; i <= n; i++) {
-                graph.add(new ArrayList<>());
+        int[] arr1 = {1, 2, 3, 4};
+        int[] arr2 = {1, 4, 2, 3};
+
+        do {
+            for(int value : arr1) {
+                System.out.print(value + " ");
             }
-
-            String[] numbers = br.readLine().split(" ");
-
-            for(int i = 1; i <= n; i++) {
-                graph.get(i).add(Integer.parseInt(numbers[i-1]));
+            System.out.print("\t");
+            for(int value : arr2) {
+                System.out.print(value + " ");
             }
+            System.out.println();
+        }while(nextPermutation(arr1));
 
-            visited = new boolean[n + 1];
-            for(int i = 1; i <= n; i++){
-                dfs(i);
-            }
-
-            bw.write(Arrays.toString(visited));
-
-        }
-        bw.flush();
-        bw.close();
     }
 
-    private static void dfs(int start) {
-        if(visited[start]) return ;
-        visited[start] = true;
-        for(int value : graph.get(start)) {
-            if(!visited[start]) dfs(value);
+    private static boolean nextPermutation(int[] arr) {
+        int i = arr.length - 1;
+        while(i > 0 && arr[i-1] >= arr[i]) i--;
+        if(i <= 0) return false;
+
+        int j = arr.length - 1;
+        while(arr[j] <= arr[i-1]) j--;
+        swap(arr, i-1, j);
+        j = arr.length - 1;
+        while(i < j) {
+            swap(arr, i, j);
+            i++; j--;
         }
+        return true;
+    }
+
+    private static void swap(int[] arr, int idx1, int idx2) {
+        int temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
     }
 }
-
