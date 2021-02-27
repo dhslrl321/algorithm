@@ -7,12 +7,12 @@ public class P03_Editor {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         String words = br.readLine();
-        Stack stack = new Stack();
+        Stack<Number> stack = new Stack<Number>();
         char[] word = words.toCharArray();
         for(char ch : word) {
             stack.push(ch);
         }
-        Stack tempStack = new Stack();
+        Stack<Number> tempStack = new Stack<Number>();
         int n = Integer.parseInt(br.readLine());
         while(n-- > 0) {
 
@@ -42,22 +42,22 @@ public class P03_Editor {
         bw.close();
     }
 
-    private static void cmdL(Stack stack, Stack tempStack) {
+    private static void cmdL(Stack<Number> stack, Stack<Number> tempStack) {
         if(!stack.isEmpty()) {
             tempStack.push(stack.pop());
         }
     }
-    private static void cmdD(Stack stack, Stack tempStack) {
+    private static void cmdD(Stack<Number> stack, Stack<Number> tempStack) {
         if(!tempStack.isEmpty()) {
             stack.push(tempStack.pop());
         }
     }
-    private static void cmdB(Stack stack) {
+    private static void cmdB(Stack<Number> stack) {
         if(!stack.isEmpty()) {
             stack.pop();
         }
     }
-    private static void cmdP(Stack stack, char ch) {
+    private static void cmdP(Stack<Number> stack, char ch) {
         stack.push(ch);
     }
 }
@@ -78,7 +78,7 @@ class Node {
         return link;
     }
 }
-class Stack {
+class Stack<I extends Number> {
     Node top;
 
     Stack () {
