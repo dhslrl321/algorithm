@@ -1,8 +1,10 @@
+package baekjoon.ps10greedy;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Main {
+public class P06_CutTree {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -17,14 +19,17 @@ public class Main {
             trees[i] = new Tree(Integer.parseInt(hn[i]), Integer.parseInt(gn[i]));
         }
 
-        Comparator<Tree> myComparator = new Comparator<Tree>() {
+        Arrays.sort(trees, new Comparator<Tree>() {
             @Override
             public int compare(Tree o1, Tree o2) {
                 return o1.growPoint - o2.growPoint;
             }
-        };
+        });
 
-        Arrays.sort(trees, myComparator);
+        Arrays.sort(trees, ((o1, o2) -> {
+            return o1.height - o2.height;
+        }));
+
 
         long answer = 0 ;
         int count = 0;
@@ -46,5 +51,4 @@ class Tree {
         this.height = height;
         this.growPoint = growPoint;
     }
-
 }

@@ -24,22 +24,12 @@ public class P03_Book {
         }
 
         int answer = 0;
-        int i = 0, j = 0;
-        while(true) {
-            if(j == books.length) break;
-            int value = boxes[i] - books[j];
-            if(value >= 0) { // 박스가 충분하면
-                boxes[i] = value;
-                j++;
-            }else { // 박스가 모자라면
-                i++;
-            }
-        }
+        int bookSum = 0;
+        int boxSum = 0;
 
-        for(int value : boxes) {
-            answer += value;
-        }
-        bw.write(String.valueOf(answer));
+        for(int value : boxes) boxSum += value;
+        for(int value : books) bookSum += value;
+        bw.write(String.valueOf(boxSum - bookSum));
         bw.flush();
         bw.close();
     }
