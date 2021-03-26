@@ -11,15 +11,29 @@ public class P09_PackagingShome {
 
         int n = Integer.parseInt(nm[0]);
         int m = Integer.parseInt(nm[1]);
+        int answer = 1;
+        int index = 0;
+        if (n == 0) answer = 0;
+        else {
+        int[] arr = new int[n];
 
-        long sum = 0;
-        for (int i = 0; i < n; i++) {
-            sum += Integer.parseInt(boxes[i]);
+        for (int i = 0; i < boxes.length; i++) {
+            arr[i] = Integer.parseInt(boxes[i]);
+        }
+        while (true) {
+            if(index == arr.length - 1) break;
+
+                int size = m - arr[index];
+                if(size <= 0) { // 새로운 박스를 갈아 끼울 떄
+                    if(size == 0) index++;
+                    answer++;
+                    m = 10;
+                }else { // 책이 박스로 들어갈 때
+                    m -= arr[index++];
+                }
+            }
         }
 
-        long answer = sum / m;
-
-        if (sum % m != 0) answer += 1;
         bw.write(String.valueOf(answer));
         bw.flush();
         bw.close();

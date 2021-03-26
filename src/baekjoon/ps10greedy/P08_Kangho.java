@@ -21,7 +21,11 @@ public class P08_Kangho {
 
         long answer = 0;
 
-        for(int value : arr) answer += value;
+        for(int value : arr) {
+            if(value > 0) {
+                answer += value;
+            }
+        }
         bw.write(String.valueOf(answer));
         bw.flush();
         bw.close();
@@ -39,3 +43,5 @@ public class P08_Kangho {
         }
     }
 }
+
+

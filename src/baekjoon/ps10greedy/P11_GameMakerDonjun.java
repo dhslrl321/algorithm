@@ -17,7 +17,7 @@ public class P11_GameMakerDonjun {
         reverseOrder(arr);
         int answer = 0;
         for (int i = 1; i < arr.length; i++) {
-            if(arr[i-1] < arr[i]) {
+            if(arr[i-1] <= arr[i]) {
                 answer += arr[i] - (arr[i-1] - 1);
                 arr[i] = arr[i-1] - 1;
             }

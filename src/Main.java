@@ -1,50 +1,66 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int n = Integer.parseInt(br.readLine());
-        String[] hn = br.readLine().split(" ");
-        String[] gn = br.readLine().split(" ");
+        List<String> inputList = new ArrayList<>();
 
-        Tree[] trees = new Tree[n];
-
-        for (int i = 0; i < n; i++) {
-            trees[i] = new Tree(Integer.parseInt(hn[i]), Integer.parseInt(gn[i]));
-        }
-
-        Comparator<Tree> myComparator = new Comparator<Tree>() {
-            @Override
-            public int compare(Tree o1, Tree o2) {
-                return o1.growPoint - o2.growPoint;
+        while (true) {
+            String input = br.readLine();
+            if (!(input.equals("0"))) {
+                inputList.add(input);
+            } else {
+                break;
             }
-        };
-
-        Arrays.sort(trees, myComparator);
-
-        long answer = 0 ;
-        int count = 0;
-        for (Tree t : trees) {
-            answer += t.height + (t.growPoint * count++);
         }
 
-        bw.write(String.valueOf(answer));
-        bw.flush();
+        for (String item : inputList) {
+            String temp = item.replaceAll(" ", "");
+            char[] data = temp.substring(1).toCharArray();
+
+            List<Character> datas = new ArrayList<>();
+
+            for (int i = 0; i < data.length; i++) {
+                datas.add(data[i]);
+            }
+
+            Collections.sort(datas);
+
+            int cnt = 0;
+
+            for (int i = 0; i < datas.size(); i++) {
+                if (datas.get(i) == '0') {
+                    cnt++;
+                }
+            }
+
+            if (cnt != 0) {
+                datas.subList(0, cnt).clear();
+
+                for (int i = 0; i < cnt; i++) {
+                    datas.add(2, '0');
+                }
+            }
+
+            StringBuilder left = new StringBuilder();
+            StringBuilder right = new StringBuilder();
+
+            for (int i = 0; i < datas.size(); i++) {
+                if (i % 2 == 1) {
+                    left.append(datas.get(i));
+                } else {
+                    right.append(datas.get(i));
+                }
+            }
+            int result = Integer.parseInt(left.toString()) + Integer.parseInt(right.toString());
+
+            bw.write(result + "\n");
+            bw.flush();
+        }
+
         bw.close();
     }
-}
-
-class Tree {
-    int height;
-    int growPoint;
-
-    Tree(int height, int growPoint) {
-        this.height = height;
-        this.growPoint = growPoint;
-    }
-
 }
