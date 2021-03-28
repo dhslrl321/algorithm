@@ -1,6 +1,7 @@
 package baekjoon.ps11simulation;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class P02_King {
 
@@ -17,47 +18,83 @@ public class P02_King {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String[] inputs = br.readLine().split(" ");
 
-        String kingPosition = inputs[0];
-        String stonePosition = inputs[1];
+        String[] kingPosition = inputs[0].split("");
+        String[] stonePosition = inputs[1].split("");
+
         int loop = Integer.parseInt(inputs[2]);
 
         while(loop-- > 0) {
 
             String move = br.readLine();
-            // 위치를 map 인덱스로 변환 positionConverter
 
-            // 알파벳을 movements 인덱스 번호로 반환하는 메서드
+            int kingX = Math.abs((kingPosition[0].charAt(0) - 65) - 8) - 1;
+            int kingY = Integer.parseInt(kingPosition[1]) - 1;
 
-            // 해당 번호의 검증 메서드
-            //  - 라인 밖으로 가는지 안 가는지
+            int stoneX = Math.abs((stonePosition[0].charAt(0) - 65) - 8) - 1;
+            int stoneY = Integer.parseInt(stonePosition[1]) - 1;
 
-            // 돌이 있는지 없는지 검증 메서드
-            //  - 돌이 있다면 돌 위치 업데이트 시키는 메서드 추가
-            //  - 돌이 없다면 킹 위치 업데이트 시키는 메서드 추가
+            int movementIndex = getMovement(move);
+
+            if(mapValidator(movements[movementIndex], kingX, kingY)) {
+                // king 이 움직일 수 있는 경우
+                int xx = kingX + movements[movementIndex][0];
+                int yy = kingY + movements[movementIndex][1];
+
+                if(xx == stoneX && yy == stoneY) {
+                    // king 이 움직이려는 곳에 stone 이 있는 경우
+                    // stone 에 대한 validation 도 해야함
+                    if(mapValidator(movements[movementIndex], stoneX, stoneY)) {
+                        kingX = stoneX;
+                        kingY = stoneY;
+
+                        stoneX += movements[movementIndex][0];
+                        stoneY += movements[movementIndex][1];
+                    }
+                }else {
+                    kingX = xx;
+                    kingY = yy;
+                }
+
+                kingPosition[0] = String.valueOf((char)Math.abs(kingX - 7) + 65);
+                kingPosition[1] = String.valueOf(kingY + 1);
+
+                stonePosition[0] = String.valueOf((char)Math.abs(stoneX - 7) + 65);
+                stonePosition[1] = String.valueOf(stoneY + 1);
+            }
+
         }
-
-        bw.flush();
-        bw.close();
+        System.out.println(Character.toString(Integer.parseInt(kingPosition[0])) + Integer.parseInt(kingPosition[1]));
+        System.out.println(Character.toString(Integer.parseInt(stonePosition[0])) + Integer.parseInt(stonePosition[1]));
     }
 
-    /**
-     * @param isCoordinate 문자열 좌표인지 아닌지
-     * @return 위치 문자열 isCoordinate == true 면 문자열 위치 반환 반대면 공백을 기준으로 x, y 좌표 문자열 반환
-     */
-    private String positionConverter(String position, boolean isCoordinate) {
-        StringBuilder sb = new StringBuilder();
-        if(isCoordinate) {
+    private static boolean mapValidator(int[] movement, int x, int y) {
+        int xx = movement[0] + x;
+        int yy = movement[1] + y;
 
-        }else {
-            char[] positionArr = position.toCharArray();
-            /*int x = 65 -*/
-        }
-        return "asdf";
+        return 0 <= xx && xx < 8 && yy >= 0 && yy < 8;
     }
 
-
+    private static int getMovement(String move) {
+        if(move.equals("R")) {
+            return 0;
+        }else if(move.equals("L")) {
+            return 1;
+        }else if(move.equals("B")) {
+            return 2;
+        }else if(move.equals("T")) {
+            return 3;
+        }else if(move.equals("RT")) {
+            return 4;
+        }else if(move.equals("LT")) {
+            return 5;
+        }else if(move.equals("RB")) {
+            return 6;
+        }else if(move.equals("LB")) {
+            return 7;
+        }
+        else return Integer.MAX_VALUE;
+    }
 }
