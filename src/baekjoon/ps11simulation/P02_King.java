@@ -8,8 +8,8 @@ public class P02_King {
     private static int[][] movements = {
             {1, 0}, // 0 : R 오른쪽으로
             {-1, 0}, // 1 : L 왼쪽으로
-            {0, -1}, // 2 : B 아래로
-            {0, 1}, // 3: T 위로
+            {0, 1}, // 2 : B 아래로
+            {0, -1}, // 3: T 위로
             {1, -1}, // 4 : RT 오른쪽 대각선 위로
             {-1, -1}, // 5 : LT 왼쪽 대각선 위로
             {1, 1}, // 6 : RB 오른쪽 아래 대각
@@ -30,44 +30,43 @@ public class P02_King {
 
             String move = br.readLine();
 
-            int kingX = Math.abs((kingPosition[0].charAt(0) - 65) - 8) - 1;
-            int kingY = Integer.parseInt(kingPosition[1]) - 1;
+            int kingX = kingPosition[0].charAt(0) - 65; // A = 0 B = 1    x
+            int kingY = Math.abs(Integer.parseInt(kingPosition[1]) - 8); // 1 = 7 2 = 6    y
 
-            int stoneX = Math.abs((stonePosition[0].charAt(0) - 65) - 8) - 1;
-            int stoneY = Integer.parseInt(stonePosition[1]) - 1;
+            int stoneX = stonePosition[0].charAt(0) - 65;
+            int stoneY = Math.abs(Integer.parseInt(stonePosition[1]) - 8);
 
             int movementIndex = getMovement(move);
-
+            boolean flag = false;
             if(mapValidator(movements[movementIndex], kingX, kingY)) {
-                // king 이 움직일 수 있는 경우
+
                 int xx = kingX + movements[movementIndex][0];
                 int yy = kingY + movements[movementIndex][1];
 
                 if(xx == stoneX && yy == stoneY) {
-                    // king 이 움직이려는 곳에 stone 이 있는 경우
-                    // stone 에 대한 validation 도 해야함
+
                     if(mapValidator(movements[movementIndex], stoneX, stoneY)) {
-                        kingX = stoneX;
-                        kingY = stoneY;
-
-                        stoneX += movements[movementIndex][0];
-                        stoneY += movements[movementIndex][1];
+                        kingX = stoneX; kingY = stoneY;
+                        stoneX += movements[movementIndex][0]; stoneY += movements[movementIndex][1];
                     }
-                }else {
-                    kingX = xx;
-                    kingY = yy;
+                    flag = true;
                 }
-
-                kingPosition[0] = String.valueOf((char)Math.abs(kingX - 7) + 65);
-                kingPosition[1] = String.valueOf(kingY + 1);
-
-                stonePosition[0] = String.valueOf((char)Math.abs(stoneX - 7) + 65);
-                stonePosition[1] = String.valueOf(stoneY + 1);
+                if(!flag) {
+                    kingX += movements[movementIndex][0];
+                    kingY += movements[movementIndex][1];
+                }
             }
 
+            updatePosition(kingPosition, kingX, kingY);
+            updatePosition(stonePosition, stoneX, stoneY);
         }
-        System.out.println(Character.toString(Integer.parseInt(kingPosition[0])) + Integer.parseInt(kingPosition[1]));
-        System.out.println(Character.toString(Integer.parseInt(stonePosition[0])) + Integer.parseInt(stonePosition[1]));
+
+        System.out.println(kingPosition[0] + kingPosition[1] +"\n" + stonePosition[0] + stonePosition[1]);
+    }
+
+    private static void updatePosition(String[] position, int x, int y) {
+        position[0] = String.valueOf((char) (x + 65));
+        position[1] = String.valueOf(Math.abs(y - 8));
     }
 
     private static boolean mapValidator(int[] movement, int x, int y) {
