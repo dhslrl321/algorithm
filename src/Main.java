@@ -17,9 +17,10 @@ public class Main {
 
     static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
     static boolean[] visited;
-
+    String hello = "asdf";
     public static void main(String[] args) throws IOException {
         out.println(solution(land, height));
+        out.println("asdf");
     }
 
     private static int solution(int[][] land, int height) {
