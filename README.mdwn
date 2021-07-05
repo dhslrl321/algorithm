@@ -1,70 +1,172 @@
-해당 Repo는 알고리즘 문제 해결을 기록하는 Repo입니다.
+# 자료 구조 & 알고리즘 기초
 
----
+- 기초
+  - 연산 및 수학
+    1. 모듈러 연산
+    2. [유클리드 알고리즘을 이용한 최소공배수, 최대공약수](https://wonit.tistory.com/411)
 
-# Category
+# 자바 알고리즘 PS 팁
 
-# 시뮬레이션
+- **자바 문제풀이 팁**
 
-가장 쉬운 문제 유형으로 초기 상태와 어떤 작업을 수행할지 제공하고 최종 결과가 어떻게 될지 예측하는 문제
-(특정 과정에 거친 결과는 무엇인가?)
+  - 스킬
 
-- 문제를 코드로 그대로 옮기면 쉽다.
-- 무엇을 해야 하는지 문제에 다 나와 있다.
+    1. 배열 뒤집기
+    2. 배열 Shift 연산
+    3. 자바 정렬 기준 바꾸기
+    4. 자바 동등과 동일 (equals vs `==`)
+    5. 알파벳 개수 (백준 문제까지)
+    6. [숫자 자리수 출력하기](https://wonit.tistory.com/418)
+    7. [알고리즘에서 아스키 코드 표 이용하기](https://wonit.tistory.com/455)
+    8. 문자열과 숫자, 문자를 다루는 다양한 방법 (`int <-> char`, `char <-> String`, `char <-> String`)
 
-# 전체 탐색 Brute Force Algorightm, 완전 탐색
+  - 문제풀이 스킬
+    1. Scanner와 System.out.println으로 기본적인 입출력 처리하기
+    2. BufferedReader & BufferedWriter 로 빠른 입출력 처리하기
+    3. 입력 유형에 따른 전처리 방법
+    4. Int to Char, Char to Int, Char to String, String to Char
+    5. 자바에서 EOF 처리하기
+    6. StringBuilder() 사용법 (sb 쓰고 flush 하는 방법)
 
-시뮬레이션과는 다르게 과정을 알려주지 않고 가장 좋은 결과가 무엇인가를 찾는 문제이다.
-(선택 사항이 몇 개가 있고 어떤 것을 선택해야할지 모른다면 모든 경우를 테스트 한다.)
-가능한 모든 것을 **다 해보는 것**.
-자원만 충족한다면 항상 **100%의 정확도**가 보장된다는 점
-**완전 탬색이라고 불리는 기법의 종류에는 4가지의 기법이 있다.**
+# 자료 구조
 
-- 재귀 함수
-- 비트 마스크
-- 순열
-- BFS, DFS
+- **스택 자료구조**
 
-## 문제의 형태 2가지
+  - 문제
+    1. [Comprehension Check](https://wonit.tistory.com/374) 괄호 유효성 검사
+    2. [백준 3986](https://www.acmicpc.net/problem/3986) 좋은 단어 [문제 풀이](https://wonit.tistory.com/375)
+    3. [백준 1874](https://www.acmicpc.net/problem/1874) 스택 수열 [문제 풀이](https://wonit.tistory.com/376)
+    4. [백준 1406](https://www.acmicpc.net/problem/1406) 에디터 [문제 풀이](https://wonit.tistory.com/380) - 연결 리스트로 구성된 스택 직접 구현해서 풀어보기
+    5. [백준 9012](https://www.acmicpc.net/problem/9012) 괄호 [문제 풀이](https://wonit.tistory.com/402)
+    6. [백준 10799](https://www.acmicpc.net/problem/10799) 쇠막대기 [문제 풀이](https://wonit.tistory.com/403)
 
-- 모든 패턴을 찾고 가장 좋은 답을 찾는 것
-- 모든 패턴을 찾고 조건을 충족하는 패턴이 몇 개가 있는지 찾는 것.
+- **큐 자료구조**
 
-## 팁
+  - 문제
+    1. [백준 11866](https://www.acmicpc.net/problem/11866) 요세푸스 문제 0 [문제 풀이](https://wonit.tistory.com/377)
+    2. [백준 1158](https://www.acmicpc.net/problem/1158) 요세푸스 문제 [문제 풀이](https://wonit.tistory.com/410) - Queue를 이용한 풀이
+    3. [백준 1966](https://www.acmicpc.net/problem/1966) 프린터 큐 [문제 풀이](https://wonit.tistory.com/381)
 
-- "가장 많은 것을 고르시오" 라는 문장이 있으면 대부분 전체 탐색이다.
+- **연결 리스트 자료구조**
 
-## 재귀함수
+  - 문제
+    1. [백준 11866](https://www.acmicpc.net/problem/11866) 요세푸스 문제 0 [문제 풀이](https://wonit.tistory.com/377)
+    2. [백준 1966](https://www.acmicpc.net/problem/1966) 프린터 큐 [문제 풀이](https://wonit.tistory.com/381)
+    3. [백준 1158](https://www.acmicpc.net/problem/1158) 요세푸스 문제 [문제 풀이](https://wonit.tistory.com/410) - LinkedList를 이용한 풀이
 
-재귀를 쓰는 방법은 **순서와 선택**에 사용된다.
+- **Recursive 재귀**
 
-1. 순서 : 중복 없이
-   > 중복이 없다는 것은 그 전 순서를 알아야 하기 때문에
+  - 문제
+    1. [백준 10872](https://www.acmicpc.net/problem/10872) 팩토리얼 [문제 풀이](https://wonit.tistory.com/382)
+    2. [백준 10870](https://www.acmicpc.net/problem/10870) 피보나치 수 5 [문제 풀이](https://wonit.tistory.com/383)
+    3. [백준 9184](https://www.acmicpc.net/problem/9184) 신나는 함수 실행 [문제 풀이]()
 
----
+# 알고리즘
 
-### 알고리즘 문제 풀이 스킬
+- **Dynamic Programming 동적 계획법**
 
-# 문자열 관련 스킬
+  - 문제
 
-### 문자열 뒤집기
+    1. [백준 1003](https://www.acmicpc.net/problem/1003) 피보나치 함수 [문제 풀이](https://wonit.tistory.com/384)
+    2. [백준 1904](https://www.acmicpc.net/problem/1904) 01 타일 [문제 풀이](https://wonit.tistory.com/385)
+    3. [백준 1149](https://www.acmicpc.net/problem/1149) RGB 거리 [문제 풀이](https://wonit.tistory.com/386)
+    4. [백준 1463](https://www.acmicpc.net/problem/1463) 1로 만들기 [문제 풀이](https://wonit.tistory.com/388)
+    5. [백준 11726](https://www.acmicpc.net/problem/11726) 2xn 타일링1 [문제 풀이](https://wonit.tistory.com/389)
+    6. [백준 11727](https://www.acmicpc.net/problem/11727) 2xn 타일링2 [문제 풀이](https://wonit.tistory.com/390)
+    7. [백준 10844](https://www.acmicpc.net/problem/10844) 쉬운 계단 수 [문제 풀이](https://wonit.tistory.com/393)
+    8. [백준 11057](https://www.acmicpc.net/problem/11057) 오르막 수 [문제 풀이](https://wonit.tistory.com/396)
+    9. [백준 2193](https://www.acmicpc.net/problem/2193) 이친수 [문제 풀이](https://wonit.tistory.com/391)
+    10. [백준 9465](https://www.acmicpc.net/problem/9465) 스티커 [문제 풀이](https://wonit.tistory.com/392)
+    11. [백준 2156](https://www.acmicpc.net/problem/2156) 포도주 시식 [문제 풀이](#)
+    12. [백준 11053](https://www.acmicpc.net/problem/11053) 가장 긴 증가하는 부분 수열 [문제 풀이](https://wonit.tistory.com/394)
+    13. [백준 11055](https://www.acmicpc.net/problem/11055) 가장 큰 증가하는 부분 수열 _문제 풀이는 [11053번 문제 풀이](https://wonit.tistory.com/394)과 논리가 같으므로 해당 링크를 참고하세요_
+    14. [백준 11722](https://www.acmicpc.net/problem/11722) 가장 긴 감소하는 부분 수열 _문제 풀이는 [11053번 문제 풀이](https://wonit.tistory.com/394)과 논리가 같으므로 해당 링크를 참고하세요_
+    15. [백준 2579](https://www.acmicpc.net/problem/2579) 계단 오르기 [문제 풀이](https://wonit.tistory.com/395)
 
-- StringBuilder, StringBuffer reverse 메서드 사용
+- **Sort 정렬 알고리즘**
 
-# 숫자
+  - 문제
+    1. [백준 2751](https://www.acmicpc.net/problem/2751) 수 정렬하기 2 [문제 풀이](https://wonit.tistory.com/397)
+    2. [백준 11650](https://www.acmicpc.net/problem/11650) 좌표 정렬하기 [문제 풀이](https://wonit.tistory.com/398)
+    3. [백준 11651](https://www.acmicpc.net/problem/11651) 좌표 정렬하기 2 [문제 풀이](https://wonit.tistory.com/399)
+    4. [백준 10814](https://www.acmicpc.net/problem/10814) 나이순 정렬 [문제 풀이](https://wonit.tistory.com/400)
+    5. [백준 10825](https://www.acmicpc.net/problem/10825) 국영수 [문제 풀이](https://wonit.tistory.com/401)
+    6. [백준 11656](https://www.acmicpc.net/problem/11656) 접미사 배열 [문제 풀이](https://wonit.tistory.com/409)
 
-- 숫자 각 자릿수 빼기 (나머지와 /연산 사용)
-- 정수인지 판별하기
-  > 1. 각 자릿수를 돌면서 ASCII 코드의 값 비교
-  > 2. parseInt로 검증하는데 만약
+- **문자열 처리**
 
-# 정렬 기준 변경하기
+  - 문제
+    1. [백준 10808](https://www.acmicpc.net/problem/10808) 알파벳 개수 [문제 풀이](https://wonit.tistory.com/404)
+    2. [백준 10809](https://www.acmicpc.net/problem/10809) 알파벳 찾기 [문제 풀이](https://wonit.tistory.com/405)
+    3. [백준 10820](https://www.acmicpc.net/problem/10820) 문자열 분석 [문제 풀이](https://wonit.tistory.com/406)
+    4. [백준 11655](https://www.acmicpc.net/problem/11655) ROT13 [문제 풀이](https://wonit.tistory.com/407)
+    5. [백준 10824](https://www.acmicpc.net/problem/10824) 네 수 [문제 풀이](https://wonit.tistory.com/408)
+    6. [백준 11656](https://www.acmicpc.net/problem/11656) 접미사 배열 [문제 풀이](https://wonit.tistory.com/409)
 
-# 수학
+- **수학**
 
-- x, y 좌표가 주어졌을 때, 직선 거리 구하는 공식 (점과 점 사이 거리)
+  - 문제
+    1. [백준 2609](https://www.acmicpc.net/problem/2609) 최소공배수와 최대공약수 [문제 풀이](https://wonit.tistory.com/412)
+    2. [백준 1934](https://www.acmicpc.net/problem/1934) 최소공배수 _문제 풀이는 [2609번 문제 풀이](https://wonit.tistory.com/412)와 논리가 같으므로 해당 링크를 참고하세요_
+    3. [백준 1850](https://www.acmicpc.net/problem/1850) 최대공약수 [문제 풀이](https://wonit.tistory.com/413)
+    4. [백준 9613](https://www.acmicpc.net/problem/9613) GCD 합 [문제 풀이](https://wonit.tistory.com/414)
 
-```java
-// 루트 ((x1 - x2)의 제곱 + (y1 - y2)의 제곱)
-int AB = Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
-```
+- **그래프 탐색 DFS & BFS**
+
+  - 문제
+    1. [백준 1260](https://www.acmicpc.net/problem/1260) DFS와 BFS [문제 풀이](https://wonit.tistory.com/415)
+    2. [백준 11724](https://www.acmicpc.net/problem/11724) 연결 요소의 개수 [문제 풀이](https://wonit.tistory.com/416)
+    3. [백준 10451](https://www.acmicpc.net/problem/10451) 순열 사이클 [문제 풀이](https://wonit.tistory.com/417)
+    4. [백준 2667](https://www.acmicpc.net/problem/2667) 단지번호붙이기 [문제 풀이](https://wonit.tistory.com/419)
+    5. [백준 4963](https://www.acmicpc.net/problem/4963) 섬의 개수 [문제 풀이](https://wonit.tistory.com/420)
+    6. [백준 2178](https://www.acmicpc.net/problem/4963) 미로 탐색 [문제 풀이](https://wonit.tistory.com/421)
+    7. [백준 2606](https://www.acmicpc.net/problem/2606) 바이러스 [문제 풀이]()
+
+- **이분 탐색, Binary Search**
+
+  - 문제
+    1. [백준 1654](https://www.acmicpc.net/problem/1654) 랜선 자르기 [문제 풀이](https://wonit.tistory.com/422)
+    2. [백준 2805](https://www.acmicpc.net/problem/2805) 나무 자르기 [문제 풀이](https://wonit.tistory.com/423)
+    3. [백준 2110](https://www.acmicpc.net/problem/2805) 공유기 설치 [문제 풀이]()
+
+- **완전 탐색, Exhaustive Search**
+
+  - 문제
+    1. [백준 2309](https://www.acmicpc.net/problem/2309) 일곱 난쟁이 [문제 풀이](https://wonit.tistory.com/427)
+    2. [백준 1476](https://www.acmicpc.net/problem/1476) 날짜 계산 [문제 풀이](https://wonit.tistory.com/424)
+    3. [백준 3085](https://www.acmicpc.net/problem/3085) 사탕 게임 [문제 풀이](https://wonit.tistory.com/425)
+    4. [백준 1107](https://www.acmicpc.net/problem/1107) 리모컨 [문제 풀이]()
+    5. [백준 14500](https://www.acmicpc.net/problem/14500) 테트로미노 [문제 풀이](https://wonit.tistory.com/426)
+    6. [백준 1018](https://www.acmicpc.net/problem/1018) 체스판 다시 칠하기 [문제 풀이](https://wonit.tistory.com/428)
+
+- **순열과 조합**
+
+  - 문제
+    1. [백준 10972](https://www.acmicpc.net/problem/10972) 다음 순열 [문제 풀이](https://wonit.tistory.com/432)
+    2. [백준 10973](https://www.acmicpc.net/problem/10973) 이전 순열 [문제 풀이](https://wonit.tistory.com/433)
+    3. [백준 10974](https://www.acmicpc.net/problem/10974) 모든 순열 [문제 풀이](https://wonit.tistory.com/434)
+    4. [백준 10819](https://www.acmicpc.net/problem/10819) 차이를 최대로 [문제 풀이](#)
+    5. [백준 10971](https://www.acmicpc.net/problem/10971) 외판원 순회 2 [문제 풀이](#)
+    6. [백준 15649](https://www.acmicpc.net/problem/15649) N과 M (1) [문제 풀이](https://wonit.tistory.com/429)
+    7. [백준 15650](https://www.acmicpc.net/problem/15650) N과 M (2) [문제 풀이](https://wonit.tistory.com/430)
+    8. [백준 6603](https://www.acmicpc.net/problem/6603) 로또 [문제 풀이](#)
+
+- **그리디 알고리즘**
+
+  - 문제
+    1. [백준 1434](https://www.acmicpc.net/problem/1434) 책 정리 [문제 풀이](#)
+    2. [백준](https://www.acmicpc.net/problem/1439) 뒤집기 [문제 풀이](#)
+
+- **구현**
+
+  - 문제
+    1. [백준 1063](https://www.acmicpc.net/problem/1063) 킹 [문제 풀이](https://wonit.tistory.com/456?category=750230)
+    2. [백준](#) 문제 [문제 풀이](#)
+
+- **이론**
+
+  - 문제
+    1. [백준](#) 문제 [문제 풀이](#)
+    2. [백준](#) 문제 [문제 풀이](#)
+
+- 순열 조합 공부하기
