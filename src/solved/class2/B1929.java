@@ -15,6 +15,11 @@ public class B1929 {
         int m = Integer.parseInt(mn[0]);
         int n = Integer.parseInt(mn[1]);
 
+        init(n);
+
+        for (int i = m; i <= n; i++) {
+            if(numbers[i] == 0 && i != 1) bw.write(i + "\n");
+        }
         bw.flush();
         bw.close();
     }
@@ -22,6 +27,11 @@ public class B1929 {
     private static void init(int max) {
 
         for (int i = 2; i <= max; i++) {
+            if(numbers[i] != 0) continue;
+
+            for (int j = i + i; j <= max; j += i) {
+                numbers[j] = 1;
+            }
 
         }
 
