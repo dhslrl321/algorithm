@@ -14,14 +14,14 @@ public class B18111 {
 
         int[][] ground = new int[n][m];
 
-        int min = 0;
-        int max = 0;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
 
-        for (int i = 0; i < ground.length; i++) {
+        for (int i = 0; i < n; i++) {
 
             String[] groundRow = br.readLine().split(" ");
 
-            for (int j = 0; j < groundRow.length; j++) {
+            for (int j = 0; j < m; j++) {
                 int value = Integer.parseInt(groundRow[j]);
                 ground[i][j] = value;
 
@@ -30,13 +30,41 @@ public class B18111 {
             }
         }
 
-        int avg = (max + min) / 2;
+        int seconds = Integer.MAX_VALUE;
+        int height = Integer.MIN_VALUE;
 
-        for (int i = 0; i < ground.length; i++) {
-            for (int j = 0; j < ground[i].length; j++) {
-                int diff = ground[i][j] - avg;
+        boolean flag;
+
+        for (int i = min; i <= max; i++) { // 최소층 부터 최대층 까지
+
+            int tempSeconds = 0;
+            int inventory = b;
+
+            flag = false;
+
+            for (int j = 0; j < ground.length; j++) {
+                for (int k = 0; k < ground[j].length; k++) {
+                    int diff = ground[j][k] - i; // 해당 블록이 현재층에서 얼마나 떨어져있는가
+
+                    if(diff > 0) { // 양수 : 블록을 빼야함 -2
+                        tempSeconds += (Math.abs(diff) * 2);
+                    } else if (diff < 0) { // 음수 : 블록을 추가해야함 -1 에 인벤토리에 블록이 존재해야함
+                        if(inventory - Math.abs(diff) < 0) { // 인벤토리에 존재하는 블록보다 더 많은 블록이 필요하다면?
+                            flag = true;
+                        }else {
+                            tempSeconds += Math.abs(diff);
+                            inventory -= diff;
+                        }
+                    }
+                }
+            }
+            if(seconds >= tempSeconds && !flag) {
+                seconds = tempSeconds;
+                height = i;
             }
         }
+
+        bw.write(seconds + " " + height);
 
         bw.flush();
         bw.close();
