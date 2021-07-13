@@ -1,13 +1,20 @@
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import org.w3c.dom.ls.LSOutput;
 
+import java.util.Arrays;
+
+/**
+ * 1. head 노드 생성
+ * 2.
+ *
+ * */
 public class Main {
-    public static void main(String[] args) {
-        String[] split = LocalDate.now()
-                .format(DateTimeFormatter.ISO_DATE)
-                .split("-");
 
-        for(String value : split)
-            System.out.println(value);
+    public static void main(String[] args) {
+        int[][] arr = {{0, 0}, {1, 1}};
+        int[][] arr2 = {{0, 0}, {1, 1}};
+
+        String a = (Arrays.deepToString(arr).equals(Arrays.deepToString(arr2))) ? "same" : "diff";
+
+        System.out.println(a);
     }
 }

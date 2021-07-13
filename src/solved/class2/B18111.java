@@ -17,7 +17,7 @@ public class B18111 {
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < ground.length; i++) {
 
             String[] groundRow = br.readLine().split(" ");
 
@@ -30,41 +30,37 @@ public class B18111 {
             }
         }
 
-        int seconds = Integer.MAX_VALUE;
-        int height = Integer.MIN_VALUE;
-
-        boolean flag;
+        int answerSeconds = Integer.MAX_VALUE; // 시간
+        int answerHeight = -1; // 층
 
         for (int i = min; i <= max; i++) { // 최소층 부터 최대층 까지
 
-            int tempSeconds = 0;
+            int seconds = 0;
             int inventory = b;
-
-            flag = false;
 
             for (int j = 0; j < ground.length; j++) {
                 for (int k = 0; k < ground[j].length; k++) {
-                    int diff = ground[j][k] - i; // 해당 블록이 현재층에서 얼마나 떨어져있는가
+                    int diff = ground[j][k] - i;
 
-                    if(diff > 0) { // 양수 : 블록을 빼야함 -2
-                        tempSeconds += (Math.abs(diff) * 2);
-                    } else if (diff < 0) { // 음수 : 블록을 추가해야함 -1 에 인벤토리에 블록이 존재해야함
-                        if(inventory - Math.abs(diff) < 0) { // 인벤토리에 존재하는 블록보다 더 많은 블록이 필요하다면?
-                            flag = true;
-                        }else {
-                            tempSeconds += Math.abs(diff);
-                            inventory -= diff;
-                        }
+                    if(diff > 0) { // 제거해야 함
+                        seconds += Math.abs(diff) * 2;
+                        inventory += Math.abs(diff);
+                    }else if(diff < 0){ // 추가해야 함
+                        seconds += Math.abs(diff);
+                        inventory -= Math.abs(diff);
                     }
                 }
             }
-            if(seconds >= tempSeconds && !flag) {
-                seconds = tempSeconds;
-                height = i;
+
+            if(inventory >= 0) {
+                if(seconds <= answerSeconds) { // == 가 포함되어야 함 ㅇ그렇지 않으면 최대 높이를 판별 하지 못함
+                    answerSeconds = seconds;
+                    answerHeight = i;
+                }
             }
         }
 
-        bw.write(seconds + " " + height);
+        bw.write(answerSeconds + " " + answerHeight);
 
         bw.flush();
         bw.close();
