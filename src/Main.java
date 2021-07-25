@@ -1,30 +1,29 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-/**
- * 1. head 노드 생성
- * 2.
- *
- * */
 public class Main {
-
     public static void main(String[] args) throws IOException {
-        ArrayList<Integer> a = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        a.add(1);
-        a.add(2);
-        a.add(3);
-        a.add(4);
-        a.add(5);
-        a.add(6);
+        String[] word = br.readLine().split("");
 
-        System.out.println(a.remove(2));
-        System.out.println(a.remove(2));
-        System.out.println(a.remove(2));
+        int len = (word.length % 2 == 0) ? (word.length / 2) - 1 : word.length / 2;
+        int wordLength = word.length - 1;
 
+        if(word.length % 2 == 0) {
+            for (int i = 0; i <= len; i++) {
+                if(!word[i].equals(word[wordLength - i])) {
+                    System.out.println(0);
+                    return;
+                }
+            }
+        } else {
+            for (int i = 0; i < len; i++) {
+                if(!word[i].equals(word[wordLength - i])) {
+                    System.out.println(0);
+                    return;
+                }
+            }
+        }
+        System.out.println(1);
     }
 }
