@@ -27,9 +27,9 @@ public class B1051 {
             for (int j = 0; j < arr[i].length - 1; j++) {
                 // 각 꼭지점
                 int acc = 1;
-
+                // [0][2] j = 2;
                 // 범위가 가능할 때 까지만 반복하면서 꼭지점을 늘려야함
-                while(!((j + acc) < m) || !((i + acc) < n)) {
+                while((j + acc) < m && (i + acc) < n) {
 
                     boolean xAxis = arr[i][j] == arr[i][j + acc]; // 오른쪽 꼭지점
                     boolean yAxis = arr[i][j] == arr[i + acc][j]; // 아래 꼭지점
@@ -38,11 +38,13 @@ public class B1051 {
                     if(xAxis && yAxis && xyAxis) {
                         max = Math.max(acc, max);
                     }
-
                     acc++;
                 }
             }
         }
+
+        max++;
+
         bw.write(String.valueOf(max * max));
 
         bw.flush();
