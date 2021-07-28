@@ -1,46 +1,26 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = null;
+        int[][] arr = {
+                {8, 14},
+                {3, 5},
+                {5, 20},
+                {1, 16},
+        };
 
-        int success = 0;
-        int failed = 0;
+        // Arrays.sort(arr, (a1, a2) -> a1[1] - a2[1]);
 
-        for (int i = 0; i < 9; i++) {
-
-            if(i != 4 && i != 5 && i != 7)
-                br = new BufferedReader(new FileReader("/Users/jangwonik/Downloads/websvr_attack/Server1/access_log.2017021" + String.valueOf(i) + ".txt"));
-
-            while(true) {
-                String log = br.readLine();
-                if(log == null) break;
-
-                String[] splattedLog = log.split(" ");
-
-                String ip = splattedLog[0];
-                String httpMethod = splattedLog[5];
-                String url = splattedLog[6];
-
-                String httpStatus;
-
-                if(splattedLog.length < 9) {
-                    failed++;
-                } else {
-                    httpStatus = splattedLog[8];
-                    if(httpStatus.charAt(0) == '2') success++;
-                    else failed++;
-                }
-                // System.out.println("id: " + ip + "\t status: " + httpMethod + "\t url: " + url);
+        Comparator<int[]> comparator = new Comparator<int[]>() {
+            @Override
+            public int compare(int[] a1, int[] a2) {
+                return a1[1] - a2[1];
             }
-        }
+        };
 
-        System.out.println("성공: " + success);
-        System.out.println("실패: " + failed);
+        Arrays.sort(arr, comparator);
 
-        System.out.println("\n\n\n----End Of File----");
+        System.out.println(Arrays.deepToString(arr));
     }
 }
