@@ -27,6 +27,7 @@
     4. Int to Char, Char to Int, Char to String, String to Char
     5. 자바에서 EOF 처리하기
     6. StringBuilder() 사용법 (sb 쓰고 flush 하는 방법)
+    7. [자바에서 람다와 Comparator, Comparable 을 이용해 정렬 기준 재정의하기](https://wonit.tistory.com/143)
 
 # 자료 구조
 
@@ -83,7 +84,7 @@
     14. [백준 11722](https://www.acmicpc.net/problem/11722) 가장 긴 감소하는 부분 수열 _문제 풀이는 [11053번 문제 풀이](https://wonit.tistory.com/394)과 논리가 같으므로 해당 링크를 참고하세요_
     15. [백준 2579](https://www.acmicpc.net/problem/2579) 계단 오르기 [문제 풀이](https://wonit.tistory.com/395)
 
-- **Sort 정렬 알고리즘**
+- **Sort, 정렬 알고리즘**
 
   - 문제
     1. [백준 2751](https://www.acmicpc.net/problem/2751) 수 정렬하기 2 [문제 풀이](https://wonit.tistory.com/397)
@@ -120,7 +121,7 @@
     4. [백준 2667](https://www.acmicpc.net/problem/2667) 단지번호붙이기 [문제 풀이](https://wonit.tistory.com/419)
     5. [백준 4963](https://www.acmicpc.net/problem/4963) 섬의 개수 [문제 풀이](https://wonit.tistory.com/420)
     6. [백준 2178](https://www.acmicpc.net/problem/4963) 미로 탐색 [문제 풀이](https://wonit.tistory.com/421)
-    7. [백준 2606](https://www.acmicpc.net/problem/2606) 바이러스 [문제 풀이]()
+    7. [백준 7576](https://www.acmicpc.net/problem/7576) 토마토 [문제 풀이](https://wonit.tistory.com/557)
 
 - **이분 탐색, Binary Search**
 
@@ -154,8 +155,8 @@
 - **그리디 알고리즘**
 
   - 문제
-    1. [백준 1434](https://www.acmicpc.net/problem/1434) 책 정리 [문제 풀이](#)
-    2. [백준](https://www.acmicpc.net/problem/1439) 뒤집기 [문제 풀이](#)
+    1. [백준 1092](https://www.acmicpc.net/problem/1092) 배 [문제 풀이](https://wonit.tistory.com/552?category=750230)
+    2. [백준 1263](https://www.acmicpc.net/problem/1263) 시간 관리 [문제 풀이](https://wonit.tistory.com/551?category=750230)
 
 - **구현**
 
@@ -168,5 +169,3 @@
   - 문제
     1. [백준](#) 문제 [문제 풀이](#)
     2. [백준](#) 문제 [문제 풀이](#)
-
-- 순열 조합 공부하기
