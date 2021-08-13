@@ -92,14 +92,14 @@ public class B9019 {
     private static int r(int n) {
         return n % 10 * 1000 + n / 10;
     }
-}
 
-class Pair {
-    String command;
-    int number;
+    private static class Pair {
+        String command;
+        int number;
 
-    public Pair(String command, int number) {
-        this.command = command;
-        this.number = number;
+        public Pair(String command, int number) {
+            this.command = command;
+            this.number = number;
+        }
     }
 }
