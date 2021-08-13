@@ -32,7 +32,7 @@ public class B14502 {
             }
         }
 
-        // 반복 돌면서 setWall() 함수 호출
+        // 반복 돌면서 setWall() 함수 호출w
 
         // bfs 로 바이러스 퍼트리기
         setWall(0);
