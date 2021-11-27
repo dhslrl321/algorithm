@@ -2,86 +2,39 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-
-    private static int n;
-    private static int m;
-    private static int[][] visited;
-    private static int[][] arr;
-
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        Person s = new Person("", 1);
 
-        String[] nm = br.readLine().split(" ");
+        try {
+            s.printClassLoaders();
+        } catch (Exception e) {
 
-        n = Integer.parseInt(nm[0]);
-        m = Integer.parseInt(nm[1]);
-
-        visited = new int[n][m];
-        arr = new int[n][m];
-
-        for(int i = 0; i < n; i++) {
-
-            String[] s = br.readLine().split("");
-
-            for(int j = 0; j < m; j++) {
-                arr[i][j] = Integer.parseInt(s[j]);
-                visited[i][j] = Integer.MAX_VALUE;
-            }
         }
-
-        bw.write(String.valueOf(bfs()));
-
-        bw.flush();
-        bw.close();
     }
 
-    private static int bfs() {
+    private static void setting(Person p) {
+        System.out.println(p);
+        System.out.println("p = " + p.hashCode());
+        p.name = "장원익";
+        p.age = 20;
+    }
+}
 
-        int[] xPos = {1, -1, 0, 0};
-        int[] yPos = {0, 0, 1, -1};
+class Person {
+    String name;
+    Integer age;
 
-        Queue<Position> queue = new LinkedList<>();
+    public void printClassLoaders() throws ClassNotFoundException {
 
-        queue.add(new Position(0, 0, 1, 0));
-        visited[0][0] = 0;
+        System.out.println("Main of this class:"
+                + Main.class.getClassLoader());
 
-        while(!queue.isEmpty()) {
-            Position front = queue.remove();
-
-            if(front.x == m - 1 && front.y == n - 1) return front.depth;
-
-            for(int i = 0; i < 4; i++) {
-                int xx = front.x + xPos[i];
-                int yy = front.y + yPos[i];
-                if(!(0 <= xx && xx < m && 0 <= yy && yy < n)) continue;
-
-                if(visited[yy][xx] > front.breakWall) { // 방문하지 않는 노드만
-
-                    if(arr[yy][xx] == 0) {
-                        queue.add(new Position(xx, yy, front.depth + 1, front.breakWall));
-                        visited[yy][xx] = front.breakWall;
-                    }else { // arr[yy][xx] == 1 (벽인 경우)
-                        if(front.breakWall == 0) {
-                            queue.add(new Position(xx, yy, front.depth + 1, 1));
-                            visited[yy][xx] = 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        return -1;
+        System.out.println("Classloader of ArrayList:"
+                + ArrayList.class.getClassLoader());
     }
 
-    private static class Position {
-        int x, y, depth, breakWall;
-
-        Position(int x, int y, int depth, int breakWall) {
-            this.x = x;
-            this.y = y;
-            this.depth = depth;
-            this.breakWall = breakWall;
-        }
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 }
