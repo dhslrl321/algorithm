@@ -1,40 +1,38 @@
 import java.io.*;
 import java.util.*;
 
+
 public class Main {
-    public static void main(String[] args) throws IOException {
-        Person s = new Person("", 1);
 
-        try {
-            s.printClassLoaders();
-        } catch (Exception e) {
+    private static int count = 0;
 
+    public static void main(String[] args) {
+        int[] arr = {8, 3, 7, 9, 2};
+        int[] targets = {3, 7, 9};
+
+        Arrays.sort(arr);
+
+        for (int target : targets) {
+            findTargetInArr(arr, 0, arr.length - 1, target);
+        }
+
+        System.out.println(count);
+    }
+
+    private static void findTargetInArr(int[] arr, int start, int end, int target) {
+
+        while (start <= end) {
+            int mid = (start + end) / 2;
+
+            if (arr[mid] == target) {
+                count++;
+                return;
+            } else if (arr[mid] < target) {
+                start = mid + 1;
+            } else if (arr[mid] > target) {
+                end = mid - 1;
+            }
         }
     }
 
-    private static void setting(Person p) {
-        System.out.println(p);
-        System.out.println("p = " + p.hashCode());
-        p.name = "장원익";
-        p.age = 20;
-    }
-}
-
-class Person {
-    String name;
-    Integer age;
-
-    public void printClassLoaders() throws ClassNotFoundException {
-
-        System.out.println("Main of this class:"
-                + Main.class.getClassLoader());
-
-        System.out.println("Classloader of ArrayList:"
-                + ArrayList.class.getClassLoader());
-    }
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
 }
