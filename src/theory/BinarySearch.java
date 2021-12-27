@@ -39,6 +39,7 @@ public class BinarySearch {
             return false;
         }
 
+
         int mid = (start + end) / 2;
 
         if (arr[mid] < k) return implByRecursion(arr, mid + 1, end, k);
