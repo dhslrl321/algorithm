@@ -24,20 +24,19 @@ public class P2343 {
         while (start <= end) {
             int mid = (start + end) / 2;
 
-            int sum = 0;
-            int count = 0;
+            int accumulation = 0; // 블루레이 수 (누적합)
+            int count = 0; // 구간 갯수
 
             for (int value : arr) {
-                if ((sum + value) > mid) {
-                    sum = 0;
+                if (value + accumulation <= mid) {
+                    accumulation += value;
                     count++;
+                } else {
+
                 }
-                sum += value;
             }
-            if(sum != 0) count++;
-            if(count <= m) end = mid - 1;
-            else start = mid + 1;
         }
+
         bw.write(String.valueOf(start));
         bw.flush();
         bw.close();
