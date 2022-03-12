@@ -25,14 +25,17 @@ public class B1244 {
             int number = Integer.parseInt(genderAndNumber[1]) - 1;
 
             if (gender == 1) {
-                male(arr, number);
+                male2(arr, number);
             } else {
-                female(arr, number);
+                female2(arr, number);
             }
         }
 
-        for (int value : arr) {
-            bw.write(value + " ");
+        for (int i = 1; i <= arr.length; i++) {
+            bw.write(arr[i - 1] + " ");
+            if (i % 20 == 0) {
+                bw.write("\n");
+            }
         }
 
         bw.flush();
@@ -40,22 +43,37 @@ public class B1244 {
     }
 
     private static void male(int[] arr, int number) {
-        for (int i = 0; i < arr.length; i++) {
-            if (i % number == 0 && validateArrayIndex(arr, 0, i)) {
-                toggleArrayValueByIndex(arr, i);
+        number += 1;
+        for (int i = number; i <= arr.length; i++) {
+            if (i % number == 0) {
+                toggleArrayValueByIndex(arr, i - 1);
             }
         }
     }
 
     private static void female(int[] arr, int number) {
+
+    }
+
+    private static void male2(int[] arr, int number) {
+        number += 1;
+        for (int i = number; i <= arr.length; i++) {
+            if (i % number == 0) {
+                toggleArrayValueByIndex(arr, i-1);
+            }
+        }
+    }
+
+    private static void female2(int[] arr, int number) {
+        toggleArrayValueByIndex(arr, number);
+
         int start = number - 1;
         int end = number + 1;
 
-        if (validateArrayIndex(arr, start, end) && arr[start] != arr[end]) {
-            toggleArrayValueByIndex(arr, number);
-        }
-
-        while (validateArrayIndex(arr, start, end) && arr[start] == arr[end]) {
+        while (validateArrayIndex(arr, start, end)) {
+            if (arr[start] != arr[end]) {
+                break;
+            }
             toggleArrayValueByIndex(arr, start);
             toggleArrayValueByIndex(arr, end);
             start--;
@@ -69,6 +87,6 @@ public class B1244 {
     }
 
     private static void toggleArrayValueByIndex(int[] arr, int index) {
-        arr[index] = arr[index] == 0 ? 1 : 0;
+        arr[index] = (arr[index] == 0) ? 1 : 0;
     }
 }
