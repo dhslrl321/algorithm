@@ -31,17 +31,9 @@ public class B1138 {
         int[] answers = new int[n];
 
         for (int i = 0; i < arr.length; i++) {
-            int index = arr[i];
-            while (true) {
-                if (answers[index] == 0) {
-                    answers[index] = i + 1;
-                    break;
-                }
-                index++;
-            }
+        
         }
 
         return answers;
     }
-
 }
