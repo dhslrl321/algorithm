@@ -1,10 +1,13 @@
 package solved.impl;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 // Edge Case 에 대한 생각이 없었다.
 public class B1316 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -30,11 +33,11 @@ public class B1316 {
         boolean[] check = new boolean[23];
         String[] letters = word.split("");
 
-        int zeroIndex = letters[0].charAt() - 'a';
+        int zeroIndex = letters[0].charAt(0) - 'a';
         check[zeroIndex] = true;
 
         for (int i = 1; i < letters.length; i++) {
-            int index = letters[i].charAt() - 'a';
+            int index = letters[i].charAt(0) - 'a';
             
             if (letters[i-1].equals(letters[i])) continue;
 
