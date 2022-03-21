@@ -24,7 +24,7 @@
     - `수학`, `Mathmatics`, `Math`
     - `문자열 처리`, `characters`
 
-## [구 문제집 바로가기 2021 ver](#)
+## [구 문제집 바로가기 2021 ver](https://github.com/dhslrl321/Algorithm-PS/blob/master/문제집-2021.mdwn)
 
 # 자바 알고리즘 PS 팁
 
