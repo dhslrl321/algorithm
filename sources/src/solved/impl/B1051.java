@@ -1,7 +1,9 @@
+package solved.impl;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class B1051 {
 
   private static int n;
   private static int m;
@@ -44,7 +46,7 @@ public class Main {
   private static int getMaximumSizeByIndex(int x, int y) {
     int plus = 1;
     int max = 0;
-    while (isValidCoordinates(x, y)) {
+    while (isValidCoordinates(x + plus, y + plus)) {
 
       Pair a = new Pair(x, y);
       Pair b = new Pair(x + plus, y);
