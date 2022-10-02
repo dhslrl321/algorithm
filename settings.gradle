@@ -1,0 +1,6 @@
+rootProject.name = 'algorithm'
+
+include 'part-impl'
+include 'part-graph'
+include 'part-string'
+
