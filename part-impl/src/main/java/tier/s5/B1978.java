@@ -1,4 +1,4 @@
-package tier.s1;
+package tier.s5;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
