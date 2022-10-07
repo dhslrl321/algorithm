@@ -65,7 +65,7 @@ public class B1331 {
     }
 
     private static String convert(Pair pair) {
-        
+        return null;
     }
 
     private static class Pair {
