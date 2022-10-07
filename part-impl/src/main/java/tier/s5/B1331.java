@@ -24,12 +24,35 @@ public class B1331 {
     }
 
     private static boolean available(Pair pair) {
+        int[] fixedX = {2, 1};
+        int[] fixedY = {1, 2};
+
+        int[][] quadrant1 = {{1, 1}, {1, 1}};
+        int[][] quadrant2 = {{1, -1}, {1, -1}};
+        int[][] quadrant3 = {{-1, 1}, {-1, 1}};
+        int[][] quadrant4 = {{-1, -1}, {-1, -1}};
+
+        for (int i = 0; i < 4; i++) {
+            int x = pair.x;
+            int y = pair.y;
+
+
+        }
         /**
+         * fixed
+         * 2 1
+         * 1 2
          * 2 1 *1 *1
          * 1 2 *1 *1
          *
-         * 2 1 *1
-         * 1 2
+         * 2 1 *1 *-1
+         * 1 2 *1 *-1
+         *
+         * 2 1 *-1 *1
+         * 1 2 *-1 *1
+         *
+         * 2 1 *-1 *-1
+         * 1 2 *-1 *-1
          */
         return false;
     }
@@ -39,6 +62,10 @@ public class B1331 {
         int x = split[0].charAt(0) - 'A';
         int y = split[1].charAt(0) - '1';
         return new Pair(x, y);
+    }
+
+    private static String convert(Pair pair) {
+        
     }
 
     private static class Pair {
