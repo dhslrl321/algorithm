@@ -1,77 +1,94 @@
 package tier.s5;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Objects;
 
 public class B1331 {
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        Pair now;
+        boolean isValid = true;
 
-        while(scanner.hasNext()) {
-            String input = scanner.nextLine();
-            Pair pair = getCoordinate(input);
+        int size = 36;
+        String[] moves = new String[size];
 
-            if (!available(pair)) {
-                System.out.println("Invalid");
-                return;
-            }
-            System.out.println("Valid");
+        for (int i = 0; i < size; i++) {
+            moves[i] = br.readLine();
         }
+
+        String prev = moves[0];
+
+        for (int i = 1; i < moves.length; i++) {
+            if (!available(convert(prev), convert(moves[i]))) {
+                isValid = false;
+                break;
+            }
+            prev = moves[i];
+        }
+
+        String answer = isValid ? "Valid" : "Invalid";
+
+        bw.write(answer);
+        bw.flush();
+        bw.close();
     }
 
-    private static boolean available(Pair pair) {
-        List<Pair> available = new ArrayList<>();
-
-        int[][] quadrant1 = {{1, 1}, {1, 1}};
-        int[][] quadrant2 = {{1, -1}, {1, -1}};
-        int[][] quadrant3 = {{-1, 1}, {-1, 1}};
-        int[][] quadrant4 = {{-1, -1}, {-1, -1}};
-
-        appendAvailableBy(pair, quadrant1, available);
-        appendAvailableBy(pair, quadrant2, available);
-        appendAvailableBy(pair, quadrant3, available);
-        appendAvailableBy(pair, quadrant4, available);
-        return false;
+    private static Pair convert(String move) {
+        String[] split = move.split("");
+        return new Pair(split[0].charAt(0) - 'A', split[1].charAt(0) - '1');
     }
 
-    private static void appendAvailableBy(Pair pair, int[][] quadrant, List<Pair> available) {
-        for (int i = 0; i < quadrant.length; i++) {
-            int[] fixedX = {2, 1};
-            int[] fixedY = {1, 2};
+    private static boolean available(Pair prev, Pair now) {
+        List<Pair> candidates = getCandidates(prev);
+        return candidates.contains(now);
+    }
 
-            for (int j = 0; j < 2; j++) {
-                int xx = fixedX[j] * quadrant[0][j];
-                int yy = fixedY[j] * quadrant[1][j];
+    private static List<Pair> getCandidates(Pair prev) {
+        List<Pair> candidates = new ArrayList<>();
+        final int[] deltaX = {1, 2, 2, 1, -2, -2, -2, -1};
+        final int[] deltaY = {2, 1, -1, -2, -1, -1, 1, 2};
 
-                if (isValid(pair.x + xx, pair.y + yy)) {
-                    available.add(new Pair(pair.x + xx, pair.y + yy));
-                }
+        for (int i = 0; i < deltaX.length; i++) {
+            int xx = deltaX[i] + prev.left;
+            int yy = deltaY[i] + prev.right;
+
+            if (isValidPosition(xx, yy)) {
+                candidates.add(new Pair(xx, yy));
             }
         }
+        return candidates;
     }
 
-    private static boolean isValid(int x, int y) {
-        return false;
-    }
-
-    private static Pair getCoordinate(String input) {
-        String[] split = input.split("");
-        int x = split[0].charAt(0) - 'A';
-        int y = split[1].charAt(0) - '1';
-        return new Pair(x, y);
+    private static boolean isValidPosition(int xx, int yy) {
+        return (0 <= xx && xx < 6) && (0 <= yy && yy < 6);
     }
 
     private static class Pair {
-        int x;
-        int y;
+        int left;
+        int right;
 
-        public Pair(int x, int y) {
-            this.x = x;
-            this.y = y;
+        public Pair(int left, int right) {
+            this.left = left;
+            this.right = right;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            Pair pair = (Pair) o;
+            return left == pair.left && right == pair.right;
         }
     }
 }
