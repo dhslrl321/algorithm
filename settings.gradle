@@ -1,6 +1,6 @@
 rootProject.name = 'algorithm'
 
-include 'part-impl'
+include 'tier-silver-5'
 include 'part-graph'
 include 'part-string'
 
