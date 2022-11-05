@@ -1,6 +1,6 @@
 package com.wonit.greedy;
 
-public class Change2 {
+public class Change_2 {
     public static void main(String[] args) {
         int[] coins = {500, 100, 50, 10};
 
