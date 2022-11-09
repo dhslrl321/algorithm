@@ -13,7 +13,6 @@ public class BecomesOne {
                 n = divide(n, k);
                 continue;
             }
-            
             n = minus(n);
         }
 
