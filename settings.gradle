@@ -1,8 +1,6 @@
 rootProject.name = 'algorithm'
 
-include 'tier-silver-5'
-include 'part-graph'
-include 'part-string'
 include 'this-is-coding-test-book'
 include 'ct'
+include 'boj'
 

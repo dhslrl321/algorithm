@@ -1,10 +1,15 @@
-package com.wonit.dfs;
+# Breadth First Search, BFS
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+- 설명
+    - 그래프의 모든 정점을 탐색하는 방법 중, 자식 노드를 순차적으로 하나씩 탐색하는 방법
+    - 루트의 모든 자식 노드를 방문하고 다음으로 루트에서 간선으로 연결된 다른 노드를 거리 순으로 방문
 
-public class DfsWithStack {
+# 구현
+
+- 큐를 이용한 구현
+
+```java
+public class Main {
     private static final List<List<Integer>> doubleLinkedListGraph = new ArrayList<>();
     private static boolean[] visited;
 
@@ -37,23 +42,22 @@ public class DfsWithStack {
         }
 
         // 3. dfs 시작;
-        dfs();
+        bfs();
     }
 
-    private static void dfs() {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(1);
+    private static void bfs() {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(1);
+        visit(1);
 
-        while(!stack.empty()) {
-            Integer poppedNode = stack.pop();
+        while (!queue.isEmpty()) {
+            int firstNode = queue.remove();
 
-            if (!visited[poppedNode]) {
-                visit(poppedNode);
-
-                for (Integer node : doubleLinkedListGraph.get(poppedNode)) {
-                    if (!visited[node]) {
-                        stack.add(node);
-                    }
+            List<Integer> linkedNodes = doubleLinkedListGraph.get(firstNode);
+            for (int linkedNode : linkedNodes) {
+                if (!visited[linkedNode]) {
+                    queue.add(linkedNode);
+                    visit(linkedNode);
                 }
             }
         }
@@ -64,3 +68,4 @@ public class DfsWithStack {
         visited[n] = true;
     }
 }
+```
