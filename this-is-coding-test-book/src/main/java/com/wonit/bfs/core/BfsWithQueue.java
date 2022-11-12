@@ -1,10 +1,12 @@
-package com.wonit.dfs;
+package com.wonit.bfs.core;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
+import java.util.Queue;
 
-public class DfsWithStack {
+public class BfsWithQueue {
     private static final List<List<Integer>> doubleLinkedListGraph = new ArrayList<>();
     private static boolean[] visited;
 
@@ -37,23 +39,22 @@ public class DfsWithStack {
         }
 
         // 3. dfs 시작;
-        dfs();
+        bfs();
     }
 
-    private static void dfs() {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(1);
+    private static void bfs() {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(1);
+        visit(1);
 
-        while(!stack.empty()) {
-            Integer poppedNode = stack.pop();
+        while (!queue.isEmpty()) {
+            int firstNode = queue.remove();
 
-            if (!visited[poppedNode]) {
-                visit(poppedNode);
-
-                for (Integer node : doubleLinkedListGraph.get(poppedNode)) {
-                    if (!visited[node]) {
-                        stack.add(node);
-                    }
+            List<Integer> linkedNodes = doubleLinkedListGraph.get(firstNode);
+            for (int linkedNode : linkedNodes) {
+                if (!visited[linkedNode]) {
+                    queue.add(linkedNode);
+                    visit(linkedNode);
                 }
             }
         }

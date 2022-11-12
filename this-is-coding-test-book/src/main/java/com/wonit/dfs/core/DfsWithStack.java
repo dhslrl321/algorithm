@@ -1,9 +1,10 @@
-package com.wonit.dfs;
+package com.wonit.dfs.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
-public class DfsWithRecursive {
+public class gDfsWithStack {
     private static final List<List<Integer>> doubleLinkedListGraph = new ArrayList<>();
     private static boolean[] visited;
 
@@ -36,16 +37,24 @@ public class DfsWithRecursive {
         }
 
         // 3. dfs 시작;
-        dfs(1);
+        dfs();
     }
 
-    private static void dfs(int startNode) {
-        visit(startNode);
+    private static void dfs() {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
 
-        List<Integer> linkedNode = doubleLinkedListGraph.get(startNode);
-        for (Integer integer : linkedNode) {
-            if (!visited[integer]) {
-                dfs(integer);
+        while(!stack.empty()) {
+            Integer poppedNode = stack.pop();
+
+            if (!visited[poppedNode]) {
+                visit(poppedNode);
+
+                for (Integer node : doubleLinkedListGraph.get(poppedNode)) {
+                    if (!visited[node]) {
+                        stack.add(node);
+                    }
+                }
             }
         }
     }
