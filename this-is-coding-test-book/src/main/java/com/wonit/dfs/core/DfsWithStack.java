@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class gDfsWithStack {
+public class DfsWithStack {
     private static final List<List<Integer>> doubleLinkedListGraph = new ArrayList<>();
     private static boolean[] visited;
 
