@@ -8,64 +8,34 @@
 
 - 큐를 이용한 구현
 
+# 장단점
+
+- 장점
+  - 출발 노드에서 목표 노드까지 최단 거리를 보장
+- 단점
+  - 경로가 매우 길 경우에는 탐색 가지가 급격히 증가하므로 보다 많은 메모리가 필요
+
 ```java
-public class Main {
-    private static final List<List<Integer>> doubleLinkedListGraph = new ArrayList<>();
-    private static boolean[] visited;
+private static void bfs() {
+    Queue<Integer> queue = new LinkedList<>();
+    queue.add(1);
+    visit(1);
 
-    public static void main(String[] args) {
-        int[][] graphRaw = {
-                {},             // node 0 <- 일부러 비워둠 (아래 int 값이 노드 번호이므로 인덱스면 안됨)
-                {2, 3, 8},      // node 1
-                {1, 7},         // node 2
-                {1, 4, 5},      // node 3
-                {3, 5},         // node 4
-                {3, 4},         // node 5
-                {7},            // node 6
-                {2, 6, 8},      // node 7
-                {1, 7}          // node 8
-        };
+    while (!queue.isEmpty()) {
+        int firstNode = queue.remove();
 
-        // 1-1. 이중 연결 리스트로 구현된 그래프 초기화
-        for (int i = 0; i < graphRaw.length; i++) {
-            doubleLinkedListGraph.add(new ArrayList<>());
-        }
-        // 1-2. 방문 여부 배열 초기화
-        visited = new boolean[graphRaw.length];
-
-        // 2. 그래프 input 값을 이중 연결 리스트로 변환
-        for (int i = 0; i < graphRaw.length; i++) {
-            List<Integer> node = doubleLinkedListGraph.get(i);
-            for (int linkedNode : graphRaw[i]) {
-                node.add(linkedNode);
-            }
-        }
-
-        // 3. dfs 시작;
-        bfs();
-    }
-
-    private static void bfs() {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(1);
-        visit(1);
-
-        while (!queue.isEmpty()) {
-            int firstNode = queue.remove();
-
-            List<Integer> linkedNodes = doubleLinkedListGraph.get(firstNode);
-            for (int linkedNode : linkedNodes) {
-                if (!visited[linkedNode]) {
-                    queue.add(linkedNode);
-                    visit(linkedNode);
-                }
+        List<Integer> linkedNodes = doubleLinkedListGraph.get(firstNode);
+        for (int linkedNode : linkedNodes) {
+            if (!visited[linkedNode]) {
+                queue.add(linkedNode);
+                visit(linkedNode);
             }
         }
     }
+}
 
-    private static void visit(int n) {
-        System.out.printf("%d node visited!%n", n);
-        visited[n] = true;
-    }
+private static void visit(int n) {
+    System.out.printf("%d node visited!%n", n);
+    visited[n] = true;
 }
 ```

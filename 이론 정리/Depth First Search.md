@@ -8,127 +8,64 @@
 # 구현
 
 - 구현법은 2가지가 존재
-  1. 직접적인 stack 사용 (자바 collections Stack 클래스 이용)
-  2. 간접적인 stack 사용 (재귀 함수)
+  1. 직접적인 stack 사용 (자바 collections Stack 클래스 이용하는 방법)
+  2. 간접적인 stack 사용 (method call stack 을 이용하는 방법)
+
+# 장단점
+
+- 장점
+  - 단지 현 경로상의 노드만 기억하면 되므로 저장공간의 수요가 비교적 적다
+  - 목표 노드가 깊은 단계에 있을 때 해를 빨리 구할 수 있음
+- 단점
+  - 얻어진 해가 최단 경로가 된다는 보장이 없다. 
+    - 이는 목표에 이르는 경로가 다수인 문제에 대해 dfs 는 해에 다다르면 탐색을 끝내버리므로, 이때 얻어진 해는 최적이 아닐 수 있다는 의미이다.
+  - 해를 구할 수 없는 경우 경로에 깊이 빠질 수 있다
+    - 미리 지정한 임의의 depth 가 넘어가면 탐색을 종료하도록 해야한다
 
 ### 직접적인 Stack 사용
 
 ```java
-public class Main {
-    private static final List<List<Integer>> doubleLinkedListGraph = new ArrayList<>();
-    private static boolean[] visited;
+private static void dfs() {
+    Stack<Integer> stack = new Stack<>();
+    stack.push(1);
 
-    public static void main(String[] args) {
-        int[][] graphRaw = {
-                {},             // node 0 <- 일부러 비워둠 (아래 int 값이 노드 번호이므로 인덱스면 안됨)
-                {2, 3, 8},      // node 1
-                {1, 7},         // node 2
-                {1, 4, 5},      // node 3
-                {3, 5},         // node 4
-                {3, 4},         // node 5
-                {7},            // node 6
-                {2, 6, 8},      // node 7
-                {1, 7}          // node 8
-        };
+    while(!stack.empty()) {
+        Integer poppedNode = stack.pop();
 
-        // 1-1. 이중 연결 리스트로 구현된 그래프 초기화
-        for (int i = 0; i < graphRaw.length; i++) {
-            doubleLinkedListGraph.add(new ArrayList<>());
-        }
-        // 1-2. 방문 여부 배열 초기화
-        visited = new boolean[graphRaw.length];
+        if (!visited[poppedNode]) {
+            visit(poppedNode);
 
-        // 2. 그래프 input 값을 이중 연결 리스트로 변환
-        for (int i = 0; i < graphRaw.length; i++) {
-            List<Integer> node = doubleLinkedListGraph.get(i);
-            for (int linkedNode : graphRaw[i]) {
-                node.add(linkedNode);
-            }
-        }
-
-        // 3. dfs 시작;
-        dfs();
-    }
-
-    private static void dfs() {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(1);
-
-        while(!stack.empty()) {
-            Integer poppedNode = stack.pop();
-
-            if (!visited[poppedNode]) {
-                visit(poppedNode);
-
-                for (Integer node : doubleLinkedListGraph.get(poppedNode)) {
-                    if (!visited[node]) {
-                        stack.add(node);
-                    }
+            for (Integer node : doubleLinkedListGraph.get(poppedNode)) {
+                if (!visited[node]) {
+                    stack.add(node);
                 }
             }
         }
     }
+}
 
-    private static void visit(int n) {
-        System.out.printf("%d node visited!%n", n);
-        visited[n] = true;
-    }
+private static void visit(int n) {
+    System.out.printf("%d node visited!%n", n);
+    visited[n] = true;
 }
 ```
 
 ### 간접적 Stack 사용 (재귀함수)
 
 ```java
-public class DfsWithRecursive {
-    private static final List<List<Integer>> doubleLinkedListGraph = new ArrayList<>();
-    private static boolean[] visited;
+private static void dfs(int startNode) {
+    visit(startNode);
 
-    public static void main(String[] args) {
-        int[][] graphRaw = {
-                {},             // node 0 <- 일부러 비워둠 (아래 int 값이 노드 번호이므로 인덱스면 안됨)
-                {2, 3, 8},      // node 1
-                {1, 7},         // node 2
-                {1, 4, 5},      // node 3
-                {3, 5},         // node 4
-                {3, 4},         // node 5
-                {7},            // node 6
-                {2, 6, 8},      // node 7
-                {1, 7}          // node 8
-        };
-
-        // 1-1. 이중 연결 리스트로 구현된 그래프 초기화
-        for (int i = 0; i < graphRaw.length; i++) {
-            doubleLinkedListGraph.add(new ArrayList<>());
-        }
-        // 1-2. 방문 여부 배열 초기화
-        visited = new boolean[graphRaw.length];
-
-        // 2. 그래프 input 값을 이중 연결 리스트로 변환
-        for (int i = 0; i < graphRaw.length; i++) {
-            List<Integer> node = doubleLinkedListGraph.get(i);
-            for (int linkedNode : graphRaw[i]) {
-                node.add(linkedNode);
-            }
-        }
-
-        // 3. dfs 시작;
-        dfs(1);
-    }
-
-    private static void dfs(int startNode) {
-        visit(startNode);
-
-        List<Integer> linkedNode = doubleLinkedListGraph.get(startNode);
-        for (Integer integer : linkedNode) {
-            if (!visited[integer]) {
-                dfs(integer);
-            }
+    List<Integer> linkedNode = doubleLinkedListGraph.get(startNode);
+    for (Integer integer : linkedNode) {
+        if (!visited[integer]) {
+            dfs(integer);
         }
     }
+}
 
-    private static void visit(int n) {
-        System.out.printf("%d node visited!%n", n);
-        visited[n] = true;
-    }
+private static void visit(int n) {
+    System.out.printf("%d node visited!%n", n);
+    visited[n] = true;
 }
 ```
