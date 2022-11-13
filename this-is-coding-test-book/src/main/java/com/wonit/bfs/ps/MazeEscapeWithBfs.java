@@ -62,7 +62,7 @@ public class MazeEscapeWithBfs {
     private static boolean available(int x, int y, int[][] arr) {
         return boundaryCheck(x, y, arr) && (arr[y][x] != 0) && !isVisited(x, y);
     }
-g
+
     private static boolean boundaryCheck(int x, int y, int[][] arr) {
         return (0 <= x && x < arr[0].length) &&
                 (0 <= y && y < arr.length);
