@@ -1,20 +1,7 @@
-# Sort
+package com.wonit.sort.core;
 
-- 데이터를 특정 기준에 따라서 순서대로 나열하는 것
+import java.util.Arrays;
 
-# 대표적인 종류
-
-- 선택 정렬
-- 삽입 정렬
-
-## 1. 선택 정렬
-
-- 설명
-  - 매번 **가장** 큰(작은) 데이터를 **선택**해서 앞에서부터 순차적으로 교체한다
-- 시간복잡도
-  - O(n^2) => n + (n - 1) + (n - 2) ... + 2
-
-```java
 public class Selection {
     public static void main(String[] args) {
         int[] arr = {7, 5, 9, 0, 3, 1, 6, 2, 4, 8};
@@ -48,4 +35,3 @@ public class Selection {
         arr[index1] = temp;
     }
 }
-```
