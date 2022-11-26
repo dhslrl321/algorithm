@@ -1,4 +1,4 @@
-package com.wonit.binarysearch;
+package com.wonit.binarysearch.core;
 
 import com.wonit.util.Assertions;
 import java.util.Arrays;
@@ -34,7 +34,6 @@ public class BinarySearchWithRecursive {
         int mid = (start + end) / 2;
 
         if (arr[mid] > key) {
-            // what if end is (mid + 1) ?
             return binarySearch(arr, key, start, mid - 1);
         } else if (arr[mid] < key) {
             return binarySearch(arr, key, mid + 1, end);

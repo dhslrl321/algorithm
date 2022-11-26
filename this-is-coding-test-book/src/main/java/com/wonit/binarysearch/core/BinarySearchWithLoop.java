@@ -1,4 +1,4 @@
-package com.wonit.binarysearch;
+package com.wonit.binarysearch.core;
 
 import java.util.Arrays;
 
@@ -8,21 +8,22 @@ public class BinarySearchWithLoop {
 
         // array should be sorted !!
         Arrays.sort(arr);
+        // sorted arr = [0, 1, 2, 3, 4, 5, 7, 8, 9]
 
-        int foundIndexByImpl = binarySearch(arr, 7);
+        int foundIndexByImpl = binarySearch(arr, 5);
         System.out.println("my implementation = " + binarySearch(arr, arr[foundIndexByImpl]));
     }
 
     private static int binarySearch(int[] arr, int key) {
         int start = 0;
         int end = arr.length - 1;
-        int mid = (start + end) / 2;
 
         while (start <= end) {
+            int mid = (start + end) / 2;
             if (arr[mid] > key) {
-                end = mid + 1;
+                end = mid - 1;
             } else if (arr[mid] < key) {
-                start = mid - 1;
+                start = mid + 1;
             } else {
                 return mid;
             }
