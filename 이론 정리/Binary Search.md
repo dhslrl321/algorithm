@@ -67,4 +67,8 @@ int binarySearch(int[] arr, int key) {
 - 장점
   - 검색이 반복될 때마다 목표값을 찾을 확률은 두 배가 되므로 속도가 빠르다는 장점이 있다.
 - 단점
-  - ㅁㄴㅇ
+  - 누누히 말하지만 정렬된 리스트에서만 사용 가능하다 
+
+# see also
+
+- parametric search

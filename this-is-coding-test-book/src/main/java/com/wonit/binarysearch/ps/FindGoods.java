@@ -50,9 +50,6 @@ public class FindGoods {
                 return true;
             }
         }
-        // not found
         return false;
     }
-
-
 }

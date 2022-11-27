@@ -39,3 +39,8 @@ private static void visit(int n) {
     visited[n] = true;
 }
 ```
+
+# see also
+
+- depth first search
+- 
