@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 떡볶이 떡 찾기
  */
-public class FindCake {
+public class FindDduckboki {
     public static void main(String[] args) {
         int m = 6;
         int[] arr = {19, 10, 15, 17};
